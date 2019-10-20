@@ -6,11 +6,13 @@
 package view;
 
 import java.awt.Color;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import model.Bomba;
+import model.Sprite;
 import model.Util;
 
 /**
@@ -21,6 +23,8 @@ public class JogoPanel extends JPanel{
     private boolean visible = true;
     private ImageIcon bg;
     private Bomba bomba;
+    
+    public Sprite tempFios;
 
     public JogoPanel() {
         setSize(Util.LARGURA, Util.ALTURA);
@@ -28,6 +32,13 @@ public class JogoPanel extends JPanel{
         
         bg = new ImageIcon("Imagens/BACKGROUND.png");
         bomba = new Bomba();
+        
+        try {
+			tempFios = new Sprite("Imagens/Fios 01.png", 18, 40, 138, 5, 9, 290, 250);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
         setVisible(true);
     }
