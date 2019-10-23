@@ -13,8 +13,9 @@ public class ThreadDesenhar extends Thread{
 		while(true){
 			try {
 				Thread.sleep(1000/30);
-			}catch (InterruptedException e) {e.printStackTrace();}
 				Gameloop.desenhar(tela);
+			}catch (InterruptedException e) {e.printStackTrace();}
+				
 			
 		}
 	}

@@ -12,14 +12,12 @@ package model;
 public class Fios {
     private String posicao;
     private String cor;
-    private Sprite img;
     private boolean resposta;
     
-	public Fios(String posicao, String cor, Sprite img, boolean resposta) {
+	public Fios(String posicao, String cor, boolean resposta) {
 		super();
 		this.posicao = posicao;
 		this.cor = cor;
-		this.img = img;
 		this.resposta = resposta;
 	}
 
@@ -37,14 +35,6 @@ public class Fios {
 
 	public void setCor(String cor) {
 		this.cor = cor;
-	}
-
-	public Sprite getImg() {
-		return img;
-	}
-
-	public void setImg(Sprite img) {
-		this.img = img;
 	}
 
 	public boolean isResposta() {

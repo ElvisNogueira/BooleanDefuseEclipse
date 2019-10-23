@@ -1,12 +1,21 @@
 package app;
 
 import java.awt.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import dao.FiosDao;
+import dao.PerguntasDao;
 import dao.Xml;
+import model.TEMPCriarFios;
+import model.TEMPCriarPerguntas;
 import model.Teste;
 import model.ThreadDesenhar;
+import model.Util;
 import view.JogoPanel;
+import view.Mensagem;
 import view.Tela;
 
 public class App {
@@ -18,9 +27,8 @@ public class App {
 //		Thread desenhar = new ThreadDesenhar(tela);
 //		desenhar.start();
 		
-		ArrayList<Teste> lista = new ArrayList<Teste>();
-		lista.add(new Teste("Elvis", "22"));
-		lista.add(new Teste("Williany", "23"));
-		System.out.println(Xml.gerarXml(lista));
+		PerguntasDao.insert(TEMPCriarPerguntas.criarPerguntas());
+		FiosDao.insert(TEMPCriarFios.criarFios());
+
 	}
 }

@@ -10,8 +10,9 @@ package model;
  * @author Elvis Nogueira
  */
 public class Util {
-    public static int ATIVADA=1, DESATIVADA=0, EXPLODIR=2;
-    public static int ALTURA=768, LARGURA=1366;
+    public static final int ATIVADA=1, DESATIVADA=0, EXPLODIR=2;
+    public static final int ALTURA=768, LARGURA=1366;
+    public static final int ERRRO = 0, SUCESSO = 1, INFO = 2;
     
     
 }

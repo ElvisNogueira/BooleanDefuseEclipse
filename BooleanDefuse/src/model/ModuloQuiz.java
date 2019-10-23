@@ -12,8 +12,6 @@ package model;
 public class ModuloQuiz {
     private Sprite ledStatus;
     private boolean status;
-    private String pergunta;
-    private String resposta;
-    
+    private Perguntas pergunta;
     
 }

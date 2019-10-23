@@ -13,5 +13,8 @@ public class ModuloFios {
     private boolean status;
     private Sprite ledStatus;
     private Fios[] fios;
+    private Sprite[] sprites;
+    
+    
     
 }

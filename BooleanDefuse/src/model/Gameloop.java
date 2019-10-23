@@ -37,8 +37,8 @@ public class Gameloop {
 					tela.getJogoPanel().getBomba().getRelogio().getUnidSegundoSprite().posX, 
 					tela.getJogoPanel().getBomba().getRelogio().getUnidSegundoSprite().posY, null);
 			
-//			g.drawImage(tela.getJogoPanel().tempFios.sprites[tela.getJogoPanel().tempFios.aparencia],
-//					tela.getJogoPanel().tempFios.posX, tela.getJogoPanel().tempFios.posY, null);
+			g.drawImage(tela.getJogoPanel().tempFios.sprites[tela.getJogoPanel().tempFios.aparencia],
+					tela.getJogoPanel().tempFios.posX, tela.getJogoPanel().tempFios.posY, null);
 //			
 			
 			

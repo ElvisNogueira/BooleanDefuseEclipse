@@ -34,7 +34,7 @@ public class JogoPanel extends JPanel{
         bomba = new Bomba();
         
         try {
-			tempFios = new Sprite("Imagens/Fios 01.png", 18, 40, 138, 5, 9, 290, 250);
+			tempFios = new Sprite("Imagens/Fios v19.png", 18, 46, 133, 5, 9, 290, 235);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
