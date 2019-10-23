@@ -27,6 +27,39 @@ public class Relogio extends Thread{
 			e.printStackTrace();
 		}
     }
+    
+    
+    @Override
+    public void run() {
+
+    	while (true) {
+    		try {
+    			Thread.sleep(1000);
+    			tempo--;
+    			
+    		} catch (InterruptedException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+		}
+    }
+    
+    
+    public int[] calcularHora(int tempo) {
+    	int auxTempo = tempo;
+    	int dezMin = tempo/600000;
+    	int unidMin = (tempo - dezMin*600000)/60000;
+    	int dezSeg = ()/10000;
+    	int unidSeg = tempo/1000;
+    	
+    	
+    	
+    	return null;
+    }
+    
+    public void setarSprites(int[] tempos) {
+    	
+    }
 
 	public int getDezenaMinuto() {
 		return dezenaMinuto;
