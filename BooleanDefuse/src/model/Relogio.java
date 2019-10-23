@@ -23,20 +23,26 @@ public class Relogio extends Thread{
 			doisPontos = new Sprite("Imagens/numeros.png", 1, 24, 28, 10, 2, 728, 368);
 			dezSegundoSprite = new Sprite("Imagens/numeros.png", 0, 24, 28, 10, 2, 762, 360);
 			unidSegundoSprite = new Sprite("Imagens/numeros.png", 0, 24, 28, 10, 2, 796, 360);
+			tempo = 300;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
     }
     
+    public Relogio(int tempo) {
+    	this.tempo = tempo;
+    }
+    
     
     @Override
     public void run() {
-
+    	int[] relogio;
     	while (true) {
     		try {
+    			relogio = calcularHora(tempo);
+    			mudarSprites(relogio);
     			Thread.sleep(1000);
     			tempo--;
-    			
     		} catch (InterruptedException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -47,17 +53,51 @@ public class Relogio extends Thread{
     
     public int[] calcularHora(int tempo) {
     	int auxTempo = tempo;
-    	int dezMin = tempo/600000;
-    	int unidMin = (tempo - dezMin*600000)/60000;
-    	int dezSeg = ()/10000;
-    	int unidSeg = tempo/1000;
+    	int dezMin = tempo/600;
+    	auxTempo = dezMin*600;
+    	int unidMin = (tempo - auxTempo)/60;
+    	auxTempo += unidMin*60;
+    	int dezSeg = (tempo - auxTempo)/10;
+    	auxTempo += dezSeg*10; 
+    	int unidSeg = (tempo-auxTempo)/1;
     	
+    	int[] relogio = {dezMin,unidMin, dezSeg, unidSeg};
     	
-    	
-    	return null;
+    	return relogio;
     }
     
-    public void setarSprites(int[] tempos) {
+    public void mudarSprites(int[] hora) {
+    	dezMinutoSprite.aparencia = setarAparencia(hora [0]);
+    	unidMinutoSprite.aparencia = setarAparencia(hora [1]);
+    	dezSegundoSprite.aparencia = setarAparencia(hora [2]);
+    	unidSegundoSprite.aparencia = setarAparencia(hora [3]);
+    }
+    
+    public int setarAparencia(int numero) {
+    	switch (numero) {
+		case 0:
+			return 0;
+		case 1:			
+			return 2;
+		case 2:
+			return 4;
+		case 3:
+			return 6;
+		case 4:
+			return 8;
+		case 5:
+			return 10;
+		case 6:
+			return 12;
+		case 7:
+			return 14;
+		case 8:
+			return 16;
+		case 9:
+			return 18;
+		}
+    	
+    	return 0;
     	
     }
 

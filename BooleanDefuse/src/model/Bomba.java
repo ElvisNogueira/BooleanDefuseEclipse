@@ -22,6 +22,7 @@ public class Bomba {
     public Bomba() {
     	bomba = new ImageIcon("Imagens/bomba.png");
     	relogio = new Relogio();
+    	relogio.start();
     }
 
 	public ModuloFios getModuloFios() {

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import dao.FiosDao;
 import dao.PerguntasDao;
 import dao.Xml;
+import model.Relogio;
 import model.TEMPCriarFios;
 import model.TEMPCriarPerguntas;
 import model.Teste;
@@ -26,6 +27,9 @@ public class App {
 		tela = new Tela(jogoPainel);
 		Thread desenhar = new ThreadDesenhar(tela);
 		desenhar.start();
+//		Relogio relogio = new Relogio(300);
+//		
+//		relogio.start();
 		
 //		PerguntasDao.insert(TEMPCriarPerguntas.criarPerguntas());
 //		FiosDao.insert(TEMPCriarFios.criarFios());
