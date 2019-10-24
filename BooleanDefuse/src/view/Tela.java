@@ -27,7 +27,7 @@ public class Tela extends JFrame{
         
         buffer = new BufferedImage(Util.LARGURA, Util.ALTURA, BufferedImage.TYPE_INT_RGB);
         
-        this.jogoPanel = new JogoPanel();
+        this.jogoPanel = jogoPanel;
         add(this.jogoPanel);
         this.jogoPanel.setBounds(0, 0, Util.LARGURA, Util.ALTURA);
         
