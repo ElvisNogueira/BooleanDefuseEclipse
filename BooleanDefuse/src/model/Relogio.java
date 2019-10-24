@@ -43,10 +43,10 @@ public class Relogio extends Thread{
     			mudarSprites(relogio);
     			Thread.sleep(1000);
     			tempo--;
-    			if(tempo>250)
+    			if((tempo>=tempo/2) && (tempo%2==0))
     				Sons.tocar("Sons/bip v1.wav");
-    			else
-    				Sons.tocar("Sons/bip v2.wav");
+    			else if (tempo<tempo/2)
+    				Sons.tocar("Sons/bip v1.wav");
     		} catch (InterruptedException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
