@@ -40,7 +40,7 @@ public class PerguntasDao {
 	
 	public static ArrayList<Perguntas> getAll(){
 		try {
-            FileReader leitor = new FileReader("XML/Fios.xml");
+            FileReader leitor = new FileReader("XML/Perguntas.xml");
             
             return (ArrayList<Perguntas>) xstream.fromXML(leitor);
         } catch (FileNotFoundException ex) {

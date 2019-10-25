@@ -12,7 +12,7 @@ public class ThreadDesenhar extends Thread{
 	public void run(){
 		while(true){
 			try {
-				Thread.sleep(1000/30);
+				Thread.sleep(1000/20);
 				Gameloop.desenhar(tela);
 			}catch (InterruptedException e) {e.printStackTrace();}
 				

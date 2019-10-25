@@ -21,6 +21,7 @@ public class Bomba {
     
     public Bomba() {
     	bomba = new ImageIcon("Imagens/bomba.png");
+    	moduloQuiz = new ModuloQuiz();
     	relogio = new Relogio();
     	relogio.start();
     }

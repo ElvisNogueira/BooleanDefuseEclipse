@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -16,30 +18,21 @@ public class Gameloop {
 			g.drawImage(tela.getJogoPanel().getBG().getImage(), -35, 0, null);
 			g.drawImage(tela.getJogoPanel().getBomba().getBomba().getImage(), 209, 85, null);
 			
-			g.drawImage(tela.getJogoPanel().getBomba().getRelogio().getDezMinutoSprite().sprites[
-			     tela.getJogoPanel().getBomba().getRelogio().getDezMinutoSprite().aparencia], 
-					tela.getJogoPanel().getBomba().getRelogio().getDezMinutoSprite().posX, 
-					tela.getJogoPanel().getBomba().getRelogio().getDezMinutoSprite().posY, null);
-			g.drawImage(tela.getJogoPanel().getBomba().getRelogio().getUnidMinutoSprite().sprites[
-			     tela.getJogoPanel().getBomba().getRelogio().getUnidMinutoSprite().aparencia], 
-					tela.getJogoPanel().getBomba().getRelogio().getUnidMinutoSprite().posX, 
-					tela.getJogoPanel().getBomba().getRelogio().getUnidMinutoSprite().posY, null);
-			g.drawImage(tela.getJogoPanel().getBomba().getRelogio().getDoisPontos().sprites[
-			     tela.getJogoPanel().getBomba().getRelogio().getDoisPontos().aparencia], 
-					tela.getJogoPanel().getBomba().getRelogio().getDoisPontos().posX, 
-					tela.getJogoPanel().getBomba().getRelogio().getDoisPontos().posY, null);
-			g.drawImage(tela.getJogoPanel().getBomba().getRelogio().getDezSegundoSprite().sprites[
-			     tela.getJogoPanel().getBomba().getRelogio().getDezSegundoSprite().aparencia], 
-					tela.getJogoPanel().getBomba().getRelogio().getDezSegundoSprite().posX, 
-					tela.getJogoPanel().getBomba().getRelogio().getDezSegundoSprite().posY, null);
-			g.drawImage(tela.getJogoPanel().getBomba().getRelogio().getUnidSegundoSprite().sprites[
-			     tela.getJogoPanel().getBomba().getRelogio().getUnidSegundoSprite().aparencia], 
-					tela.getJogoPanel().getBomba().getRelogio().getUnidSegundoSprite().posX, 
-					tela.getJogoPanel().getBomba().getRelogio().getUnidSegundoSprite().posY, null);
+			g.setFont(Util.getFonte("Seven Segment"));
+			g.setColor(Color.RED);
+			g.drawString(tela.getJogoPanel().getBomba().getRelogio().getTexto(), 700, 380);
 			
 			g.drawImage(tela.getJogoPanel().tempFios.sprites[tela.getJogoPanel().tempFios.aparencia],
 					tela.getJogoPanel().tempFios.posX, tela.getJogoPanel().tempFios.posY, null);
-//			
+			
+			tela.getJogoPanel().getVerdadeiroButton().repaint();
+			tela.getJogoPanel().getFalsoButton().repaint();
+			
+			
+			tela.getJogoPanel().getPerguntaModuloQuiz().repaint();
+			
+			g.dispose(); 
+		    g2.dispose();
 			
 			
 		}

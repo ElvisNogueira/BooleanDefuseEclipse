@@ -13,20 +13,11 @@ import java.io.IOException;
  */
 public class Relogio extends Thread{
     private int dezenaMinuto,unidadeMinuto,dezenaSegundo,unidadeSegundo;
-    private Sprite dezMinutoSprite,unidMinutoSprite,dezSegundoSprite,unidSegundoSprite,doisPontos;
     private int tempo;
+    private String texto = "";
     
     public Relogio() {
-    	try {
-			dezMinutoSprite = new Sprite("Imagens/numeros.png", 0, 24, 28, 10, 2, 664, 360);
-			unidMinutoSprite = new Sprite("Imagens/numeros.png", 10, 24, 28, 10, 2, 694, 360);
-			doisPontos = new Sprite("Imagens/numeros.png", 1, 24, 28, 10, 2, 728, 368);
-			dezSegundoSprite = new Sprite("Imagens/numeros.png", 0, 24, 28, 10, 2, 762, 360);
-			unidSegundoSprite = new Sprite("Imagens/numeros.png", 0, 24, 28, 10, 2, 796, 360);
-			tempo = 300;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    	tempo = 300;
     }
     
     public Relogio(int tempo) {
@@ -40,13 +31,18 @@ public class Relogio extends Thread{
     	while (true) {
     		try {
     			relogio = calcularHora(tempo);
-    			mudarSprites(relogio);
     			Thread.sleep(1000);
-    			tempo--;
+    			
+    			if(tempo%2==0)
+    				texto = relogio[0]+""+relogio[1]+":"+relogio[2]+""+relogio[3];
+    			else
+    				texto = relogio[0]+""+relogio[1]+" "+relogio[2]+""+relogio[3];
     			if((tempo>=tempo/2) && (tempo%2==0))
     				Sons.tocar("Sons/bip v1.wav");
     			else if (tempo<tempo/2)
     				Sons.tocar("Sons/bip v1.wav");
+    			
+    			tempo--;
     		} catch (InterruptedException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -70,41 +66,7 @@ public class Relogio extends Thread{
     	return relogio;
     }
     
-    public void mudarSprites(int[] hora) {
-    	dezMinutoSprite.aparencia = setarAparencia(hora [0]);
-    	unidMinutoSprite.aparencia = setarAparencia(hora [1]);
-    	dezSegundoSprite.aparencia = setarAparencia(hora [2]);
-    	unidSegundoSprite.aparencia = setarAparencia(hora [3]);
-    }
-    
-    public int setarAparencia(int numero) {
-    	switch (numero) {
-		case 0:
-			return 0;
-		case 1:			
-			return 2;
-		case 2:
-			return 4;
-		case 3:
-			return 6;
-		case 4:
-			return 8;
-		case 5:
-			return 10;
-		case 6:
-			return 12;
-		case 7:
-			return 14;
-		case 8:
-			return 16;
-		case 9:
-			return 18;
-		}
-    	
-    	return 0;
-    	
-    }
-
+  
 	public int getDezenaMinuto() {
 		return dezenaMinuto;
 	}
@@ -137,46 +99,6 @@ public class Relogio extends Thread{
 		this.unidadeSegundo = unidadeSegundo;
 	}
 
-	public Sprite getDezMinutoSprite() {
-		return dezMinutoSprite;
-	}
-
-	public void setDezMinutoSprite(Sprite dezMinutoSprite) {
-		this.dezMinutoSprite = dezMinutoSprite;
-	}
-
-	public Sprite getUnidMinutoSprite() {
-		return unidMinutoSprite;
-	}
-
-	public void setUnidMinutoSprite(Sprite unidMinutoSprite) {
-		this.unidMinutoSprite = unidMinutoSprite;
-	}
-
-	public Sprite getDezSegundoSprite() {
-		return dezSegundoSprite;
-	}
-
-	public void setDezSegundoSprite(Sprite dezSegundoSprite) {
-		this.dezSegundoSprite = dezSegundoSprite;
-	}
-
-	public Sprite getUnidSegundoSprite() {
-		return unidSegundoSprite;
-	}
-
-	public void setUnidSegundoSprite(Sprite unidSegundoSprite) {
-		this.unidSegundoSprite = unidSegundoSprite;
-	}
-
-	public Sprite getDoisPontos() {
-		return doisPontos;
-	}
-
-	public void setDoisPontos(Sprite doisPontos) {
-		this.doisPontos = doisPontos;
-	}
-
 	public int getTempo() {
 		return tempo;
 	}
@@ -184,6 +106,12 @@ public class Relogio extends Thread{
 	public void setTempo(int tempo) {
 		this.tempo = tempo;
 	}
+
+	public String getTexto() {
+		return texto;
+	}
+	
+	
     
     
 }

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import controller.ControladorJogoPanel;
 import dao.FiosDao;
 import dao.PerguntasDao;
 import dao.Xml;
@@ -25,8 +26,11 @@ public class App {
 		JogoPanel jogoPainel = new JogoPanel();
 		
 		tela = new Tela(jogoPainel);
+	
 		Thread desenhar = new ThreadDesenhar(tela);
 		desenhar.start();
+		
+		ControladorJogoPanel cjp = new ControladorJogoPanel(tela.getJogoPanel());
 //		Relogio relogio = new Relogio(300);
 //		
 //		relogio.start();
