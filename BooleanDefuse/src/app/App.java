@@ -27,7 +27,7 @@ public class App {
 		
 		tela = new Tela(jogoPainel);
 	
-		Thread desenhar = new ThreadDesenhar(tela);
+		ThreadDesenhar desenhar = new ThreadDesenhar(tela);
 		desenhar.start();
 		
 		ControladorJogoPanel cjp = new ControladorJogoPanel(tela.getJogoPanel());

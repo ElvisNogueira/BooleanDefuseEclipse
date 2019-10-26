@@ -21,6 +21,7 @@ public class Util {
     public static final int ALTURA=768, LARGURA=1366;
     public static final int ERRRO = 0, SUCESSO = 1, INFO = 2;
     public static Font arial = new Font("Arial", Font.BOLD, 10);
+    public static final int FPS = 150;
     
     public static Font getFonte( String nomeFonte ){  
         Font font = null;  

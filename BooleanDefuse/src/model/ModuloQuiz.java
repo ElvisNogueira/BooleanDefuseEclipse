@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,6 +22,12 @@ public class ModuloQuiz {
     
     public ModuloQuiz() {
     	pergunta = selecionarPergunta();
+    	try {
+			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 785, 170);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     public Perguntas selecionarPergunta () {
@@ -28,6 +35,12 @@ public class ModuloQuiz {
     	ArrayList<Perguntas> perguntas = PerguntasDao.getAll();
     	
     	return perguntas.get(random.nextInt(perguntas.size()));
+    }
+    
+    public boolean corrigirResposta(boolean respRecebida) {
+    	if(respRecebida==pergunta.getResposta())
+    		return true;
+    	return false;
     }
 
 	public Sprite getLedStatus() {

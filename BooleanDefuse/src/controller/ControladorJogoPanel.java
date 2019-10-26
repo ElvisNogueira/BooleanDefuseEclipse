@@ -32,7 +32,16 @@ public class ControladorJogoPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Sons.tocar("Sons/botao.wav");			
+			Sons.tocar("Sons/botao.wav");
+			if(e.getSource()==jogoPanel.getVerdadeiroButton()) {
+				if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(true))
+					jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
+				
+			}else if (e.getSource()==jogoPanel.getFalsoButton()){
+				if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(false))
+					jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
+			}
+				
 		}
 
 		@Override
