@@ -61,7 +61,7 @@ public class JogoPanel extends JPanel{
         
         
         try {
-			tempFios = new Sprite("Imagens/Fios v19.png", 18, 46, 133, 5, 9, 290, 235);
+			tempFios = new Sprite("Imagens/Fios v19.png", 0, 46, 133, 5, 9, 313, 235);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
