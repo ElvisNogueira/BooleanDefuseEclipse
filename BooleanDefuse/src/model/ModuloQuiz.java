@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import dao.PerguntasDao;
+import view.Mensagem;
 
 /**
  *
@@ -22,11 +23,11 @@ public class ModuloQuiz {
     
     public ModuloQuiz() {
     	pergunta = selecionarPergunta();
+    	status = true;
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 785, 170);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
 		}
     }
     
@@ -53,6 +54,14 @@ public class ModuloQuiz {
 
 	public Perguntas getPergunta() {
 		return pergunta;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public void setPergunta(Perguntas pergunta) {
+		this.pergunta = pergunta;
 	}
     
     

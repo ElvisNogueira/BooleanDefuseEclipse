@@ -33,13 +33,30 @@ public class ControladorJogoPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Sons.tocar("Sons/botao.wav");
-			if(e.getSource()==jogoPanel.getVerdadeiroButton()) {
-				if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(true))
-					jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
-				
-			}else if (e.getSource()==jogoPanel.getFalsoButton()){
-				if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(false))
-					jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
+			if(jogoPanel.getBomba().getModuloQuiz().isStatus()) {
+				if(e.getSource()==jogoPanel.getVerdadeiroButton()) {
+					if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(true)) {
+						jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
+						Sons.tocar("Sons/acerto.wav");
+						jogoPanel.getBomba().getModuloQuiz().setStatus(false);
+					}else {
+						Sons.tocar("Sons/erro.wav");
+						jogoPanel.getBomba().getRelogio().setTempo(jogoPanel.getBomba().getRelogio().getTempo()-10);
+						jogoPanel.getBomba().getModuloQuiz().setPergunta(jogoPanel.getBomba().getModuloQuiz().selecionarPergunta());
+						jogoPanel.getPerguntaModuloQuiz().setText(jogoPanel.getBomba().getModuloQuiz().getPergunta().getPergunta());
+					}
+				}else if (e.getSource()==jogoPanel.getFalsoButton()){
+					if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(false)) {
+						jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
+						Sons.tocar("Sons/acerto.wav");
+					}else {
+						Sons.tocar("Sons/erro.wav");
+						jogoPanel.getBomba().getRelogio().setTempo(jogoPanel.getBomba().getRelogio().getTempo()-10);
+						jogoPanel.getBomba().getModuloQuiz().setPergunta(jogoPanel.getBomba().getModuloQuiz().selecionarPergunta());
+						jogoPanel.getPerguntaModuloQuiz().setText(jogoPanel.getBomba().getModuloQuiz().getPergunta().getPergunta());
+					}
+						
+				}
 			}
 				
 		}
