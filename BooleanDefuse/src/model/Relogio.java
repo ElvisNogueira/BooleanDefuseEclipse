@@ -17,7 +17,7 @@ public class Relogio extends Thread{
     private String texto = "";
     
     public Relogio() {
-    	tempo = 300;
+    	tempo = Util.TEMPO_JOGO_SEG;
     }
     
     public Relogio(int tempo) {
@@ -33,14 +33,16 @@ public class Relogio extends Thread{
     			relogio = calcularHora(tempo);
     			Thread.sleep(1000);
     			
-    			if(tempo%2==0)
-    				texto = relogio[0]+""+relogio[1]+":"+relogio[2]+""+relogio[3];
-    			else
-    				texto = relogio[0]+""+relogio[1]+" "+relogio[2]+""+relogio[3];
-    			if((tempo>=tempo/2) && (tempo%2==0))
-    				Sons.tocar("Sons/bip v1.wav");
-    			else if (tempo<tempo/2)
-    				Sons.tocar("Sons/bip v1.wav");
+    			if(tempo != 0) {
+    				if(tempo%2==0)
+        				texto = relogio[0]+""+relogio[1]+":"+relogio[2]+""+relogio[3];
+        			else
+        				texto = relogio[0]+""+relogio[1]+" "+relogio[2]+""+relogio[3];
+        			if((tempo>=tempo/2) && (tempo%2==0))
+        				Sons.tocar("Sons/bip v1.wav");
+        			else if (tempo<tempo/2)
+        				Sons.tocar("Sons/bip v1.wav");
+    			}
     			
     			tempo--;
     		} catch (InterruptedException e) {

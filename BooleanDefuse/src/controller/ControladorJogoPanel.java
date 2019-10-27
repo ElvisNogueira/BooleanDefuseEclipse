@@ -25,10 +25,12 @@ public class ControladorJogoPanel{
 		
 		this.jogoPanel.getVerdadeiroButton().addMouseListener(c);;
 		this.jogoPanel.getFalsoButton().addMouseListener(c);
+		jogoPanel.addMouseMotionListener(c);
+		jogoPanel.addMouseListener(c);
 		
 	}
 	
-	private class Controlador implements ActionListener, MouseListener{
+	private class Controlador implements ActionListener, MouseListener, MouseMotionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -63,7 +65,7 @@ public class ControladorJogoPanel{
 
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
-			// TODO Auto-generated method stub
+			jogoPanel.getBomba().getModuloFios().cortarFios(arg0.getX(), arg0.getY());
 			
 		}
 
@@ -91,6 +93,17 @@ public class ControladorJogoPanel{
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
 			
+		}
+
+		@Override
+		public void mouseDragged(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseMoved(MouseEvent e) {
+			jogoPanel.getBomba().getModuloFios().colisaoFios(e.getX(), e.getY());
 		}
 		
 	}

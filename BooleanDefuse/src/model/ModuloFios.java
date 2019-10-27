@@ -5,11 +5,15 @@
  */
 package model;
 
+import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import dao.FiosDao;
+import view.Mensagem;
 
 /**
  *
@@ -26,6 +30,11 @@ public class ModuloFios {
     	sprites = new Sprite[3];
     	sortearFios();
     	setarSprites(fios);
+    	try {
+			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 170);
+		} catch (IOException e) {
+			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
+		}
     	
     }
     
@@ -168,6 +177,81 @@ public class ModuloFios {
     	}
 		return 0;
     	
+    }
+    
+    public boolean colisaoFios(int posXMouse,int posYMouse) {
+    	for (int i = 0; i < fios.length; i++) {
+    		if(colide(sprites[i], posXMouse, posYMouse)) {
+    			if(sprites[i].aparencia%3==0) {
+    				desmarcarFios();
+    				sprites[i].aparencia++;
+    				Sons.tocar("Sons/select.wav");
+    				return true;    				
+    			}
+    		}
+		}
+		return false;   	
+    	
+    }
+    
+    public void cortarFios(int posXMouse,int posYMouse) {
+    	System.out.println("entrou");
+    	for (int i = 0; i < fios.length; i++) {
+    		if(colide(sprites[i], posXMouse, posYMouse)) {
+    			if(sprites[i].aparencia%3 - 1==0) {
+    				sprites[i].aparencia++;
+    				Sons.tocar("Sons/alicate.wav");
+    				if(!corrigirFiosCortados(i))
+    					JOptionPane.showMessageDialog(null, "Deuu ruim!");//colocar a explosão
+    				verificarStatus();
+    				
+    			}
+    		}
+		}
+    }
+    
+    private void desmarcarFios() {
+    	for (int i = 0; i < fios.length; i++) {
+    		if(sprites[i].aparencia%3 - 1==0) {
+    			sprites[i].aparencia--;
+    		}
+    	}
+    }
+    
+    private boolean colide(Sprite sprite1, int mouseX, int mouseY) {
+    	  Rectangle r1 = new Rectangle(sprite1.posX, sprite1.posY, sprite1.width, sprite1.height);
+    	  Rectangle r2 = new Rectangle(mouseX, mouseY, 1, 1);
+    	  
+    	  if (r1.intersects(r2)) {
+    	    return true;
+    	  }
+    	  
+    	  return false;
+    }
+    
+    private boolean verificarStatus() {
+    	for (int i = 0; i < fios.length; i++) {
+			if(fios[i].isResposta()) {
+				if(sprites[i].aparencia%3 - 2 != 0) {
+					return false;
+				}
+			}else {
+				if(sprites[i].aparencia%3 - 2 == 0) {
+					return false;
+				}
+			}
+		}
+    	if(ledStatus.aparencia==0) {
+    		ledStatus.aparencia++;
+    	}
+    	
+		return true;
+    }
+    
+    private boolean corrigirFiosCortados(int indice) {
+    	if(!fios[indice].isResposta())
+    		return false;
+    	return true;
     }
 
 	public boolean isStatus() {
