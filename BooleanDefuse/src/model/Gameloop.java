@@ -31,8 +31,16 @@ public class Gameloop {
 			g.drawString(tela.getJogoPanel().getBomba().getRelogio().getTexto(), 700, 380);
 			
 			//Fios temporario
-			g.drawImage(tela.getJogoPanel().tempFios.sprites[tela.getJogoPanel().tempFios.aparencia],
-					tela.getJogoPanel().tempFios.posX, tela.getJogoPanel().tempFios.posY, null);
+//			g.drawImage(tela.getJogoPanel().tempFios.sprites[tela.getJogoPanel().tempFios.aparencia],
+//					tela.getJogoPanel().tempFios.posX, tela.getJogoPanel().tempFios.posY, null);
+			
+			// fios bomba
+			g.drawImage(bomba.getModuloFios().getSprites()[0].sprites[bomba.getModuloFios().getSprites()[0].aparencia], 
+					bomba.getModuloFios().getSprites()[0].posX, bomba.getModuloFios().getSprites()[0].posY, null);
+			g.drawImage(bomba.getModuloFios().getSprites()[1].sprites[bomba.getModuloFios().getSprites()[1].aparencia], 
+					bomba.getModuloFios().getSprites()[1].posX, bomba.getModuloFios().getSprites()[1].posY, null);
+			g.drawImage(bomba.getModuloFios().getSprites()[2].sprites[bomba.getModuloFios().getSprites()[2].aparencia], 
+					bomba.getModuloFios().getSprites()[2].posX, bomba.getModuloFios().getSprites()[2].posY, null);
 			
 			//Modulo quiz
 			tela.getJogoPanel().getVerdadeiroButton().repaint();

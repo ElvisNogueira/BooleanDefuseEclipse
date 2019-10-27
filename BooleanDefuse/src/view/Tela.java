@@ -19,6 +19,7 @@ public class Tela extends JFrame{
     private BufferedImage buffer;;
     
     public Tela(JogoPanel jogoPanel) {
+    	super("Boolean Defuse");
         setSize(Util.LARGURA, Util.ALTURA);
         setLocationRelativeTo(null);
         setResizable(false);
