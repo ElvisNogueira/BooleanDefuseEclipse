@@ -23,22 +23,23 @@ public class Bomba {
     	bomba = new ImageIcon("Imagens/bomba.png");
     	moduloQuiz = new ModuloQuiz();
     	moduloFios = new ModuloFios();
-    	
     	relogio = new Relogio();
     	relogio.start();
     	
     }
     
-    public void initBomba() {
+    public void reiniciarBomba() {
     	moduloQuiz.initModQuiz();
     	moduloFios.initModFios();
-    	relogio.start();
+    	
+    	relogio.setTempo(Util.TEMPO_JOGO_SEG);
+    	relogio.resume();
     	
     }
     
     public void desativarBomba() {
     	if(moduloFios.isStatus() && moduloQuiz.isStatus()) {
-    		relogio.stop();
+    		relogio.suspend();
     		Sons.tocar("Sons/Bomb defused.wav");
     	}
     }
