@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import model.Bomba;
@@ -29,6 +30,7 @@ public class JogoPanel extends JPanel{
     private Bomba bomba;
     private JButton verdadeiroButton,falsoButton;
     private JTextArea perguntaModuloQuiz;
+    private JTextField elementoModMorse1, operadorModMorse, elementoModMorse2, resultadoModMorse;
     
     public Sprite tempFios;
 
@@ -53,6 +55,10 @@ public class JogoPanel extends JPanel{
         falsoButton = new JButton("Falso");     
         falsoButton.setSize(100, 30);
         falsoButton.setLocation(735, 245);
+        
+        elementoModMorse1 = new JTextField(1);
+        operadorModMorse = new JTextField(2)
+        
         
         add(verdadeiroButton);
         add(falsoButton);
