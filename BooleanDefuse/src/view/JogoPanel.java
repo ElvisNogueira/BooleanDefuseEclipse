@@ -25,7 +25,6 @@ import model.Util;
  * @author Elvis Nogueira
  */
 public class JogoPanel extends JPanel{
-    private boolean visible = true;
     private ImageIcon bg;
     private Bomba bomba;
     private JButton verdadeiroButton,falsoButton;
@@ -51,15 +50,16 @@ public class JogoPanel extends JPanel{
         verdadeiroButton = new JButton("Verdadeiro");
         verdadeiroButton.setSize(100, 30);
         verdadeiroButton.setLocation(630, 245);
+        verdadeiroButton.setBackground(new Color(172,161,155));
         
         falsoButton = new JButton("Falso");     
         falsoButton.setSize(100, 30);
         falsoButton.setLocation(735, 245);
+        falsoButton.setBackground(new Color(172,161,155));
         
         elementoModMorse1 = new JTextField(1);
         operadorModMorse = new JTextField(2);
-        
-        
+
         
         add(verdadeiroButton);
         add(falsoButton);
@@ -76,14 +76,6 @@ public class JogoPanel extends JPanel{
         
         setVisible(true);
     }
-
-	public boolean isVisible() {
-		return visible;
-	}
-
-	public void setVisible(boolean visible) {
-		this.visible = visible;
-	}
 
 	public ImageIcon getBG() {
 		return bg;

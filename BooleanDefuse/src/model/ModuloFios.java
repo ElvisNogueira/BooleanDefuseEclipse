@@ -28,14 +28,20 @@ public class ModuloFios {
     public ModuloFios() {
     	fios = new Fios[3];
     	sprites = new Sprite[3];
-    	sortearFios();
-    	setarSprites(fios);
+    	initModFios();
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 170);
 		} catch (IOException e) {
 			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
 		}
     	
+    }
+    
+    public void initModFios() {
+    	sortearFios();
+    	setarSprites(fios);
+    	ledStatus.aparencia = 0;
+    	status = false;
     }
     
     private void sortearFios() {
@@ -243,6 +249,7 @@ public class ModuloFios {
 		}
     	if(ledStatus.aparencia==0) {
     		ledStatus.aparencia++;
+    		status = true;
     	}
     	
 		return true;
