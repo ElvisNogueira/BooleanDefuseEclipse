@@ -79,12 +79,7 @@ public class ModuloFios {
     	
     	fios[0] = fiosSelec.get(0);
     	fios[1] = fiosSelec.get(1);
-    	fios[2] = fiosSelec.get(2);
-    	
-    	System.err.println(fiosSelec.get(0).getPosicao() +" "+ fiosSelec.get(1).getPosicao()+" "+fiosSelec.get(2).getPosicao() );
-    	
-    	
-    	
+    	fios[2] = fiosSelec.get(2);  	
     }
     
     private Sprite[] setarSprites(Fios[] vetorFios) {
@@ -95,8 +90,7 @@ public class ModuloFios {
 				sprites [i] = new Sprite("Imagens/Fios v19.png", setarAparenciaSprite(vetorFios[i].getPosicao(), vetorFios[i].getCor()), 
 						46, 133, 5, 9, posicaoXFios(i, vetorFios[i]), 235);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
 			}
     	}
     	
@@ -203,7 +197,6 @@ public class ModuloFios {
     }
     
     public void cortarFios(int posXMouse,int posYMouse) {
-    	System.out.println("entrou");
     	for (int i = 0; i < fios.length; i++) {
     		if(colide(sprites[i], posXMouse, posYMouse)) {
     			if(sprites[i].aparencia%3 - 1==0) {

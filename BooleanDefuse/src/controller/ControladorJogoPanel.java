@@ -3,6 +3,8 @@ package controller;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -29,9 +31,14 @@ public class ControladorJogoPanel{
 		jogoPanel.addMouseMotionListener(c);
 		jogoPanel.addMouseListener(c);
 		
+		jogoPanel.getElementoModMorse1().addKeyListener(c);
+		jogoPanel.getElementoModMorse2().addKeyListener(c);
+		jogoPanel.getOperadorModMorse().addKeyListener(c);
+		jogoPanel.getResultadoModMorse().addKeyListener(c);
+		
 	}
 	
-	private class Controlador implements ActionListener, MouseListener, MouseMotionListener{
+	private class Controlador implements ActionListener, MouseListener, MouseMotionListener, KeyListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -41,12 +48,16 @@ public class ControladorJogoPanel{
 					if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(true)) {
 						jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
 						Sons.tocar("Sons/acerto.wav");
-						jogoPanel.getBomba().getModuloQuiz().setStatus(false);
 					}else {
 						Sons.tocar("Sons/erro.wav");
-						jogoPanel.getBomba().getRelogio().setTempo(jogoPanel.getBomba().getRelogio().getTempo()-10);
-						jogoPanel.getBomba().getModuloQuiz().setPergunta(jogoPanel.getBomba().getModuloQuiz().selecionarPergunta());
-						jogoPanel.getPerguntaModuloQuiz().setText(jogoPanel.getBomba().getModuloQuiz().getPergunta().getPergunta());
+						if(jogoPanel.getBomba().getRelogio().getTempo()<=10) {
+							jogoPanel.getBomba().getRelogio().setTempo(0);
+						}else {
+							jogoPanel.getBomba().getRelogio().setTempo(jogoPanel.getBomba().getRelogio().getTempo()-10);
+							jogoPanel.getBomba().getModuloQuiz().setPergunta(jogoPanel.getBomba().getModuloQuiz().selecionarPergunta());
+							jogoPanel.getPerguntaModuloQuiz().setText(jogoPanel.getBomba().getModuloQuiz().getPergunta().getPergunta());
+						}
+						
 					}
 				}else if (e.getSource()==jogoPanel.getFalsoButton()){
 					if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(false)) {
@@ -106,6 +117,31 @@ public class ControladorJogoPanel{
 		@Override
 		public void mouseMoved(MouseEvent e) {
 			jogoPanel.getBomba().getModuloFios().colisaoFios(e.getX(), e.getY());
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			if(e.getSource()==jogoPanel.getElementoModMorse1() || e.getSource()==jogoPanel.getElementoModMorse2()
+			   || e.getSource()==jogoPanel.getOperadorModMorse() || e.getSource()==jogoPanel.getResultadoModMorse()) {
+				
+				jogoPanel.getBomba().getModuloMorse().corrigirResposta(jogoPanel.getElementoModMorse1().getText(), 
+						jogoPanel.getElementoModMorse2().getText(), jogoPanel.getOperadorModMorse().getText(), 
+						jogoPanel.getResultadoModMorse().getText());
+				jogoPanel.getBomba().desativarBomba();
+			}
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}

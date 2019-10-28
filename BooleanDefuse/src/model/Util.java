@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -22,9 +23,11 @@ public class Util {
     public static final int ERRRO = 0, SUCESSO = 1, INFO = 2;
     public static final int TEMPO_JOGO_SEG = 300;
     public static Font arial = new Font("Arial", Font.BOLD, 10);
+    public static Font gabriola = new Font("Gabriola", Font.BOLD, 10);
+    public static Color azulBic = new Color(25,78,146);
     public static final int FPS = 15;
     
-    public static Font getFonte( String nomeFonte ){  
+    public static Font getFonteLED( String nomeFonte ){  
         Font font = null;  
         try{
         	font = Font.createFont(Font.TRUETYPE_FONT, new File("Fontes/"+nomeFonte+".ttf"));

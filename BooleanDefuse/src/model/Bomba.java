@@ -23,6 +23,8 @@ public class Bomba {
     	bomba = new ImageIcon("Imagens/bomba.png");
     	moduloQuiz = new ModuloQuiz();
     	moduloFios = new ModuloFios();
+    	moduloMorse = new ModuloMorse();
+    	
     	relogio = new Relogio();
     	relogio.start();
     	
@@ -38,7 +40,7 @@ public class Bomba {
     }
     
     public void desativarBomba() {
-    	if(moduloFios.isStatus() && moduloQuiz.isStatus()) {
+    	if(moduloFios.isStatus() && moduloQuiz.isStatus() && moduloMorse.isStatus()) {
     		relogio.suspend();
     		Sons.tocar("Sons/Bomb defused.wav");
     	}

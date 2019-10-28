@@ -26,7 +26,7 @@ public class Gameloop {
 			g.drawImage(tela.getJogoPanel().getBomba().getBomba().getImage(), 208, 85, null);
 			
 			//Relógio da bomba
-			g.setFont(Util.getFonte("Seven Segment"));
+			g.setFont(Util.getFonteLED("Seven Segment"));
 			g.setColor(Color.RED);
 			g.drawString(tela.getJogoPanel().getBomba().getRelogio().getTexto(), 700, 380);
 			
@@ -54,6 +54,16 @@ public class Gameloop {
 			tela.getJogoPanel().getOperadorModMorse().repaint();
 			tela.getJogoPanel().getElementoModMorse2().repaint();
 			tela.getJogoPanel().getResultadoModMorse().repaint();
+			
+			g.setFont(Util.arial);
+			g.setColor(Util.azulBic);
+			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[0].getPalavra(), 350, 500);
+			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[1].getPalavra(), 350, 520);
+			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[2].getPalavra(), 350, 540);
+			
+			g.drawImage(bomba.getModuloMorse().getLedStatus().sprites[bomba.getModuloMorse().getLedStatus().aparencia], 
+					bomba.getModuloMorse().getLedStatus().posX, bomba.getModuloMorse().getLedStatus().posY, null);
+			
 			
 			g.dispose(); 
 		    g2.dispose();
