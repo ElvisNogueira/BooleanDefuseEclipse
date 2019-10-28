@@ -28,12 +28,14 @@ public class ModuloFios {
     public ModuloFios() {
     	fios = new Fios[3];
     	sprites = new Sprite[3];
-    	initModFios();
+    	
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 170);
 		} catch (IOException e) {
 			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
 		}
+    	
+    	initModFios();
     	
     }
     

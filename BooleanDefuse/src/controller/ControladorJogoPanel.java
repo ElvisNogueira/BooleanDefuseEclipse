@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import model.Bomba;
 import model.Sons;
 import view.JogoPanel;
 
@@ -35,7 +36,7 @@ public class ControladorJogoPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Sons.tocar("Sons/botao.wav");
-			if(jogoPanel.getBomba().getModuloQuiz().isStatus()) {
+			if(!jogoPanel.getBomba().getModuloQuiz().isStatus()) {
 				if(e.getSource()==jogoPanel.getVerdadeiroButton()) {
 					if(jogoPanel.getBomba().getModuloQuiz().corrigirResposta(true)) {
 						jogoPanel.getBomba().getModuloQuiz().getLedStatus().aparencia=1;
@@ -60,13 +61,14 @@ public class ControladorJogoPanel{
 						
 				}
 			}
+			jogoPanel.getBomba().desativarBomba();
 				
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			jogoPanel.getBomba().getModuloFios().cortarFios(arg0.getX(), arg0.getY());
-			
+			jogoPanel.getBomba().desativarBomba();
 		}
 
 		@Override

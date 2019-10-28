@@ -24,6 +24,9 @@ public class Relogio extends Thread{
     	this.tempo = tempo;
     }
     
+    public void initRelogio() {
+    	tempo = Util.TEMPO_JOGO_SEG;
+    }
     
     @Override
     public void run() {
@@ -42,9 +45,10 @@ public class Relogio extends Thread{
         				Sons.tocar("Sons/bip v1.wav");
         			else if (tempo<tempo/2)
         				Sons.tocar("Sons/bip v1.wav");
+        			tempo--;
     			}
     			
-    			tempo--;
+    			
     		} catch (InterruptedException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();

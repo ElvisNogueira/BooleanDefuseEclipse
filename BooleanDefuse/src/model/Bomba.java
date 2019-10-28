@@ -26,6 +26,22 @@ public class Bomba {
     	
     	relogio = new Relogio();
     	relogio.start();
+    	
+    }
+    
+    public void initBomba() {
+    	moduloQuiz.initModQuiz();
+    	moduloFios.initModFios();
+    	relogio.start();
+    	
+    }
+    
+    public void desativarBomba() {
+    	System.out.println("Chamou com "+moduloFios.isStatus()+" e "+moduloQuiz.isStatus());
+    	if(moduloFios.isStatus() && moduloQuiz.isStatus()) {
+    		System.out.println("Entrou");
+    		relogio.stop();
+    	}
     }
 
 	public ModuloFios getModuloFios() {

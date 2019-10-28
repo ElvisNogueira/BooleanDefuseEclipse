@@ -59,7 +59,13 @@ public class JogoPanel extends JPanel{
         
         elementoModMorse1 = new JTextField(1);
         operadorModMorse = new JTextField(2);
-
+        elementoModMorse2 = new JTextField(1);
+        resultadoModMorse = new JTextField(1);
+        
+        add(elementoModMorse1).setBounds(330, 590, 30, 30);
+        add(operadorModMorse).setBounds(380, 590, 30, 30);
+        add(elementoModMorse2).setBounds(430, 590, 30, 30);
+        add(resultadoModMorse).setBounds(500, 590, 30, 30);
         
         add(verdadeiroButton);
         add(falsoButton);
@@ -99,6 +105,30 @@ public class JogoPanel extends JPanel{
 
 	public JTextArea getPerguntaModuloQuiz() {
 		return perguntaModuloQuiz;
+	}
+
+	public ImageIcon getBg() {
+		return bg;
+	}
+
+	public JTextField getElementoModMorse1() {
+		return elementoModMorse1;
+	}
+
+	public JTextField getOperadorModMorse() {
+		return operadorModMorse;
+	}
+
+	public JTextField getElementoModMorse2() {
+		return elementoModMorse2;
+	}
+
+	public JTextField getResultadoModMorse() {
+		return resultadoModMorse;
+	}
+
+	public Sprite getTempFios() {
+		return tempFios;
 	}
     
     

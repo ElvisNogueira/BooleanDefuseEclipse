@@ -49,6 +49,11 @@ public class Gameloop {
 			g.drawImage(bomba.getModuloQuiz().getLedStatus().sprites[bomba.getModuloQuiz().getLedStatus().aparencia], 
 					bomba.getModuloQuiz().getLedStatus().posX, bomba.getModuloQuiz().getLedStatus().posY, null);
 			
+			//Modulo Morse
+			tela.getJogoPanel().getElementoModMorse1().repaint();
+			tela.getJogoPanel().getOperadorModMorse().repaint();
+			tela.getJogoPanel().getElementoModMorse2().repaint();
+			tela.getJogoPanel().getResultadoModMorse().repaint();
 			
 			g.dispose(); 
 		    g2.dispose();

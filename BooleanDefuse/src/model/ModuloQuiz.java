@@ -22,13 +22,20 @@ public class ModuloQuiz {
     private Perguntas pergunta;
     
     public ModuloQuiz() {
-    	pergunta = selecionarPergunta();
-    	status = true;
+    	
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 785, 170);
 		} catch (IOException e) {
 			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
 		}
+    	
+    	initModQuiz();
+    }
+    
+    public void initModQuiz() {
+    	pergunta = selecionarPergunta();
+    	status = false;
+    	ledStatus.aparencia = 0;
     }
     
     public Perguntas selecionarPergunta () {
@@ -39,8 +46,11 @@ public class ModuloQuiz {
     }
     
     public boolean corrigirResposta(boolean respRecebida) {
-    	if(respRecebida==pergunta.getResposta())
+    	if(respRecebida==pergunta.getResposta()) {
+    		status = true;
     		return true;
+    	}
+    		
     	return false;
     }
 
