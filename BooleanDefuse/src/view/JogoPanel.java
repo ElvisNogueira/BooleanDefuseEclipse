@@ -57,7 +57,8 @@ public class JogoPanel extends JPanel{
         falsoButton.setLocation(735, 245);
         
         elementoModMorse1 = new JTextField(1);
-        operadorModMorse = new JTextField(2)
+        operadorModMorse = new JTextField(2);
+        
         
         
         add(verdadeiroButton);
