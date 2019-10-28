@@ -37,10 +37,9 @@ public class Bomba {
     }
     
     public void desativarBomba() {
-    	System.out.println("Chamou com "+moduloFios.isStatus()+" e "+moduloQuiz.isStatus());
     	if(moduloFios.isStatus() && moduloQuiz.isStatus()) {
-    		System.out.println("Entrou");
     		relogio.stop();
+    		Sons.tocar("Sons/Bomb defused.wav");
     	}
     }
 
