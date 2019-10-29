@@ -244,6 +244,7 @@ public class ModuloFios {
 		}
     	if(ledStatus.aparencia==0) {
     		ledStatus.aparencia++;
+    		Sons.tocar("Sons/acerto.wav");
     		status = true;
     	}
     	

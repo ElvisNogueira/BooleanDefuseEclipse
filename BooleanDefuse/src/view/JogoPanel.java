@@ -74,7 +74,7 @@ public class JogoPanel extends JPanel{
         add(operadorModMorse).setBounds(380, 587, 30, 30);
         add(elementoModMorse2).setBounds(430, 587, 30, 30);
         add(resultadoModMorse).setBounds(500, 587, 30, 30);
-        add(saidaCod).setBounds(1030, 427, 50, 40);
+        add(saidaCod).setBounds(1030, 430, 50, 40);
         add(verdadeiroButton);
         add(falsoButton);
         add(perguntaModuloQuiz);

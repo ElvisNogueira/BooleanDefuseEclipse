@@ -76,9 +76,9 @@ public class Gameloop {
 			g.setFont(Util.getFont("Anton-Regular", 30));
 			g.setColor(Color.white);
 			
-			g.drawString(bomba.getModuloTesteMesa().getEntradas()[0]+"", 960, 380);
-			g.drawString(bomba.getModuloTesteMesa().getEntradas()[1]+"", 980, 380);
-			g.drawString(bomba.getModuloTesteMesa().getEntradas()[2]+"", 1000, 380);
+			g.drawString(bomba.getModuloTesteMesa().getEntradas()[0]+"", 970, 380);
+			g.drawString(bomba.getModuloTesteMesa().getEntradas()[1]+"", 990, 380);
+			g.drawString(bomba.getModuloTesteMesa().getEntradas()[2]+"", 1010, 380);
 			
 			
 			g.dispose(); 
