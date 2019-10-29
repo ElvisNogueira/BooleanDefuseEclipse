@@ -10,6 +10,7 @@ import controller.ControladorJogoPanel;
 import dao.FiosDao;
 import dao.PerguntasDao;
 import dao.VocabulosDao;
+import model.ModuloTesteMesa;
 import model.Relogio;
 import model.TEMPCriarFios;
 import model.TEMPCriarPerguntas;
