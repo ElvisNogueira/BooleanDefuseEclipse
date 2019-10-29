@@ -35,6 +35,7 @@ public class ControladorJogoPanel{
 		jogoPanel.getElementoModMorse2().addKeyListener(c);
 		jogoPanel.getOperadorModMorse().addKeyListener(c);
 		jogoPanel.getResultadoModMorse().addKeyListener(c);
+		jogoPanel.getSaidaCod().addKeyListener(c);
 		
 	}
 	
@@ -134,6 +135,11 @@ public class ControladorJogoPanel{
 						jogoPanel.getElementoModMorse2().getText(), jogoPanel.getOperadorModMorse().getText(), 
 						jogoPanel.getResultadoModMorse().getText());
 				jogoPanel.getBomba().desativarBomba();
+			}else if(e.getSource()==jogoPanel.getSaidaCod()) {
+				if(jogoPanel.getBomba().getModuloTesteMesa().corrigir(jogoPanel.getSaidaCod().getText())) {
+					jogoPanel.getBomba().getModuloTesteMesa().setStatus(true);
+					jogoPanel.getBomba().desativarBomba();
+				}
 			}
 			
 		}

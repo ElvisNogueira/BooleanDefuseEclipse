@@ -30,8 +30,6 @@ public class JogoPanel extends JPanel{
     private JButton verdadeiroButton,falsoButton;
     private JTextArea perguntaModuloQuiz;
     private JTextField elementoModMorse1, operadorModMorse, elementoModMorse2, resultadoModMorse, saidaCod;
-    
-    public Sprite tempFios;
 
     public JogoPanel() {
         setSize(Util.LARGURA, Util.ALTURA);
@@ -63,23 +61,24 @@ public class JogoPanel extends JPanel{
         resultadoModMorse = new JTextField(1);
         saidaCod = new JTextField(2);
         
-        add(elementoModMorse1).setBounds(330, 590, 30, 30);
-        add(operadorModMorse).setBounds(380, 590, 30, 30);
-        add(elementoModMorse2).setBounds(430, 590, 30, 30);
-        add(resultadoModMorse).setBounds(500, 590, 30, 30);
-        add(saidaCod).setBounds(1030, 430, 30, 40);
+        elementoModMorse1.setHorizontalAlignment(elementoModMorse1.CENTER);
+        operadorModMorse.setHorizontalAlignment(operadorModMorse.CENTER);
+        elementoModMorse2.setHorizontalAlignment(elementoModMorse2.CENTER);
+        resultadoModMorse.setHorizontalAlignment(resultadoModMorse.CENTER);
+        saidaCod.setHorizontalAlignment(saidaCod.CENTER);
+        
+        
+        
+        
+        add(elementoModMorse1).setBounds(330, 587, 30, 30);
+        add(operadorModMorse).setBounds(380, 587, 30, 30);
+        add(elementoModMorse2).setBounds(430, 587, 30, 30);
+        add(resultadoModMorse).setBounds(500, 587, 30, 30);
+        add(saidaCod).setBounds(1030, 427, 50, 40);
         add(verdadeiroButton);
         add(falsoButton);
         add(perguntaModuloQuiz);
         
-        
-        
-        try {
-			tempFios = new Sprite("Imagens/Fios v19.png", 0, 46, 133, 5, 9, 515, 235);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
         
         setVisible(true);
     }
@@ -126,10 +125,6 @@ public class JogoPanel extends JPanel{
 
 	public JTextField getResultadoModMorse() {
 		return resultadoModMorse;
-	}
-
-	public Sprite getTempFios() {
-		return tempFios;
 	}
 
 	public JTextField getSaidaCod() {

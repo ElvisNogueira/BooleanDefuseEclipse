@@ -27,7 +27,7 @@ public class Gameloop {
 			g.drawImage(tela.getJogoPanel().getBomba().getBomba().getImage(), 208, 85, null);
 			
 			//Relógio da bomba
-			g.setFont(Util.getFonteLED("Seven Segment"));
+			g.setFont(Util.getFont("Seven Segment",40));
 			g.setColor(Color.RED);
 			g.drawString(tela.getJogoPanel().getBomba().getRelogio().getTexto(), 700, 380);
 			
@@ -69,7 +69,16 @@ public class Gameloop {
 			
 			g.drawImage(bomba.getModuloTesteMesa().getSimbolo().sprites[bomba.getModuloTesteMesa().getSimbolo().aparencia], 
 					bomba.getModuloTesteMesa().getSimbolo().posX, bomba.getModuloTesteMesa().getSimbolo().posY, null);
+			g.drawImage(bomba.getModuloTesteMesa().getLedStatus().sprites[bomba.getModuloTesteMesa().getLedStatus().aparencia], 
+					bomba.getModuloTesteMesa().getLedStatus().posX, bomba.getModuloTesteMesa().getLedStatus().posY, null);
 			tela.getJogoPanel().getSaidaCod().repaint();
+			
+			g.setFont(Util.getFont("Anton-Regular", 30));
+			g.setColor(Color.white);
+			
+			g.drawString(bomba.getModuloTesteMesa().getEntradas()[0]+"", 960, 380);
+			g.drawString(bomba.getModuloTesteMesa().getEntradas()[1]+"", 980, 380);
+			g.drawString(bomba.getModuloTesteMesa().getEntradas()[2]+"", 1000, 380);
 			
 			
 			g.dispose(); 

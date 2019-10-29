@@ -35,6 +35,7 @@ public class Bomba {
     	moduloQuiz.initModQuiz();
     	moduloFios.initModFios();
     	moduloMorse.initModMorse();
+    	moduloTesteMesa.init();
     	
     	relogio.setTempo(Util.TEMPO_JOGO_SEG);
     	relogio.resume();
@@ -42,7 +43,7 @@ public class Bomba {
     }
     
     public void desativarBomba() {
-    	if(moduloFios.isStatus() && moduloQuiz.isStatus() && moduloMorse.isStatus()) {
+    	if(moduloFios.isStatus() && moduloQuiz.isStatus() && moduloMorse.isStatus() && moduloTesteMesa.isStatus()) {
     		relogio.suspend();
     		Sons.tocar("Sons/Bomb defused.wav");
     	}

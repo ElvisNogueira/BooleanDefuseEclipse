@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import view.Mensagem;
+
 /**
  *
  * @author Elvis Nogueira
@@ -27,15 +29,15 @@ public class Util {
     public static Color azulBic = new Color(25,78,146);
     public static final int FPS = 15;
     
-    public static Font getFonteLED( String nomeFonte ){  
+    public static Font getFont( String nomeFonte, int tamanho ){  
         Font font = null;  
         try{
         	font = Font.createFont(Font.TRUETYPE_FONT, new File("Fontes/"+nomeFonte+".ttf"));
         }
         catch(IOException|FontFormatException e){
-             System.out.println("Merda " + e);
+             Mensagem.mostrar("Erro ao carregar fonte!", Util.ERRRO);
         }
-            font = font.deriveFont(Font.PLAIN, 40);
+            font = font.deriveFont(Font.PLAIN, tamanho);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(font);
             return font;
