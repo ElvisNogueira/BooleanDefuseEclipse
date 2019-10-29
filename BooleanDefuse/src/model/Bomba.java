@@ -24,6 +24,7 @@ public class Bomba {
     	moduloQuiz = new ModuloQuiz();
     	moduloFios = new ModuloFios();
     	moduloMorse = new ModuloMorse();
+    	moduloTesteMesa = new ModuloTesteMesa();
     	
     	relogio = new Relogio();
     	relogio.start();
@@ -33,6 +34,7 @@ public class Bomba {
     public void reiniciarBomba() {
     	moduloQuiz.initModQuiz();
     	moduloFios.initModFios();
+    	moduloMorse.initModMorse();
     	
     	relogio.setTempo(Util.TEMPO_JOGO_SEG);
     	relogio.resume();

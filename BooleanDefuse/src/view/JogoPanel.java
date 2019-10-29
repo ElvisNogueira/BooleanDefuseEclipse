@@ -29,7 +29,7 @@ public class JogoPanel extends JPanel{
     private Bomba bomba;
     private JButton verdadeiroButton,falsoButton;
     private JTextArea perguntaModuloQuiz;
-    private JTextField elementoModMorse1, operadorModMorse, elementoModMorse2, resultadoModMorse;
+    private JTextField elementoModMorse1, operadorModMorse, elementoModMorse2, resultadoModMorse, saidaCod;
     
     public Sprite tempFios;
 
@@ -61,12 +61,13 @@ public class JogoPanel extends JPanel{
         operadorModMorse = new JTextField(2);
         elementoModMorse2 = new JTextField(1);
         resultadoModMorse = new JTextField(1);
+        saidaCod = new JTextField(2);
         
         add(elementoModMorse1).setBounds(330, 590, 30, 30);
         add(operadorModMorse).setBounds(380, 590, 30, 30);
         add(elementoModMorse2).setBounds(430, 590, 30, 30);
         add(resultadoModMorse).setBounds(500, 590, 30, 30);
-        
+        add(saidaCod).setBounds(1030, 430, 30, 40);
         add(verdadeiroButton);
         add(falsoButton);
         add(perguntaModuloQuiz);
@@ -129,6 +130,10 @@ public class JogoPanel extends JPanel{
 
 	public Sprite getTempFios() {
 		return tempFios;
+	}
+
+	public JTextField getSaidaCod() {
+		return saidaCod;
 	}
     
     

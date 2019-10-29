@@ -5,7 +5,11 @@
  */
 package model;
 
+import java.io.IOException;
+
 import javax.swing.ImageIcon;
+
+import view.Mensagem;
 
 /**
  *
@@ -18,7 +22,11 @@ public class ModuloTesteMesa {
     private String saida;
     
     public ModuloTesteMesa() {
-    	
+    	try {
+			simbolo = new Sprite("Imagens/simbCod.png", 0, 194, 111, 1, 3, 895, 225);
+		} catch (IOException e) {
+			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
+		}
     }
     
     public int codTriangulo(int par1, int par2, int par3) {
@@ -90,6 +98,28 @@ public class ModuloTesteMesa {
     	
     	return s;
     }
+
+	public Sprite getSimbolo() {
+		return simbolo;
+	}
+
+	public Sprite getLedStatus() {
+		return ledStatus;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public String[] getEntradas() {
+		return entradas;
+	}
+
+	public String getSaida() {
+		return saida;
+	}
+    
+    
     
     
 }

@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import view.JogoPanel;
 import view.Tela;
 
 public class Gameloop {
@@ -63,6 +64,12 @@ public class Gameloop {
 			
 			g.drawImage(bomba.getModuloMorse().getLedStatus().sprites[bomba.getModuloMorse().getLedStatus().aparencia], 
 					bomba.getModuloMorse().getLedStatus().posX, bomba.getModuloMorse().getLedStatus().posY, null);
+			
+			//Modulo teste mesa
+			
+			g.drawImage(bomba.getModuloTesteMesa().getSimbolo().sprites[bomba.getModuloTesteMesa().getSimbolo().aparencia], 
+					bomba.getModuloTesteMesa().getSimbolo().posX, bomba.getModuloTesteMesa().getSimbolo().posY, null);
+			tela.getJogoPanel().getSaidaCod().repaint();
 			
 			
 			g.dispose(); 
