@@ -21,6 +21,7 @@ import view.Mensagem;
  */
 public class Util {
     public static final int ATIVADA=1, DESATIVADA=0, EXPLODIR=2;
+    public static final boolean explodir = true;
     public static final int ALTURA=768, LARGURA=1366;
     public static final int ERRRO = 0, SUCESSO = 1, INFO = 2;
     public static final int TEMPO_JOGO_SEG = 300;
