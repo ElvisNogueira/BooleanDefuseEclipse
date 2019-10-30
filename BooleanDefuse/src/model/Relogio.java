@@ -36,7 +36,7 @@ public class Relogio extends Thread{
     			relogio = calcularHora(tempo);
     			Thread.sleep(1000);
     			
-    			if(tempo != 0) {
+    			if(tempo != -1) {
     				if(tempo%2==0)
         				texto = relogio[0]+""+relogio[1]+":"+relogio[2]+""+relogio[3];
         			else
