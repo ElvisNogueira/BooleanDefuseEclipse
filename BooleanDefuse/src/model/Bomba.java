@@ -20,7 +20,7 @@ public class Bomba {
     private Relogio relogio;
     
     public Bomba() {
-    	bomba = new ImageIcon("Imagens/bomba.png");
+    	bomba = new ImageIcon("Imagens/bomba 2.png");
     	moduloQuiz = new ModuloQuiz();
     	moduloFios = new ModuloFios();
     	moduloMorse = new ModuloMorse();
