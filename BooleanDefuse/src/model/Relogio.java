@@ -46,6 +46,8 @@ public class Relogio extends Thread{
         			else if (tempo<tempo/2)
         				Sons.tocar("Sons/bip v1.wav");
         			tempo--;
+    			}else {
+    				Util.explodir = true;;
     			}
     			
     		} catch (InterruptedException e) {

@@ -13,9 +13,9 @@ public class Gameloop {
 	
 	public static void desenhar(Tela tela){
 		
-		Graphics2D g2 = (Graphics2D) tela.getGraphics(); 	
-		Graphics g = tela.getBuffer().getGraphics();		
-		g2.drawImage(tela.getBuffer(), 0, 0, null);
+		Graphics2D g = (Graphics2D) tela.getBuffer1().getDrawGraphics(); 	
+//		Graphics g = tela.getBuffer().getGraphics();		
+		g.drawImage(tela.getBuffer(), 0, 0, null);
 		bomba = tela.getJogoPanel().getBomba();
 		
 		
@@ -44,17 +44,11 @@ public class Gameloop {
 			
 			
 			//Modulo quiz
-			tela.getJogoPanel().getVerdadeiroButton().repaint();
-			tela.getJogoPanel().getFalsoButton().repaint();			
-			tela.getJogoPanel().getPerguntaModuloQuiz().repaint();
+			
 			g.drawImage(bomba.getModuloQuiz().getLedStatus().sprites[bomba.getModuloQuiz().getLedStatus().aparencia], 
 					bomba.getModuloQuiz().getLedStatus().posX, bomba.getModuloQuiz().getLedStatus().posY, null);
 			
-			//Modulo Morse
-			tela.getJogoPanel().getElementoModMorse1().repaint();
-			tela.getJogoPanel().getOperadorModMorse().repaint();
-			tela.getJogoPanel().getElementoModMorse2().repaint();
-			tela.getJogoPanel().getResultadoModMorse().repaint();
+			
 			
 			g.setFont(Util.arial);
 			g.setColor(Util.azulBic);
@@ -71,7 +65,7 @@ public class Gameloop {
 					bomba.getModuloTesteMesa().getSimbolo().posX, bomba.getModuloTesteMesa().getSimbolo().posY, null);
 			g.drawImage(bomba.getModuloTesteMesa().getLedStatus().sprites[bomba.getModuloTesteMesa().getLedStatus().aparencia], 
 					bomba.getModuloTesteMesa().getLedStatus().posX, bomba.getModuloTesteMesa().getLedStatus().posY, null);
-			tela.getJogoPanel().getSaidaCod().repaint();
+			
 			
 			g.setFont(Util.getFont("Anton-Regular", 30));
 			g.setColor(Color.white);
@@ -80,6 +74,18 @@ public class Gameloop {
 			g.drawString(bomba.getModuloTesteMesa().getEntradas()[1]+"", 990, 380);
 			g.drawString(bomba.getModuloTesteMesa().getEntradas()[2]+"", 1010, 380);
 			
+			//Modulo Morse
+			tela.getJogoPanel().getElementoModMorse1().repaint();
+			tela.getJogoPanel().getOperadorModMorse().repaint();
+			tela.getJogoPanel().getElementoModMorse2().repaint();
+			tela.getJogoPanel().getResultadoModMorse().repaint();
+			
+			
+			tela.getJogoPanel().getVerdadeiroButton().repaint();
+			tela.getJogoPanel().getFalsoButton().repaint();			
+			tela.getJogoPanel().getPerguntaModuloQuiz().repaint();
+			
+			tela.getJogoPanel().getSaidaCod().repaint();
 			
 			//Gameover
 			
@@ -89,7 +95,12 @@ public class Gameloop {
 			tela.getMenuPanel().getPlayButton().repaint();
 		}
 		
-		if(tela.getGameOverPanel().isVisible()) {
+		if(Util.explodir) {
+			if(!tela.getGameOverPanel().isVisible()) {
+				tela.getJogoPanel().setVisible(false);
+				tela.getGameOverPanel().setVisible(true);
+				bomba.explodir();
+			}
 			g.drawImage(tela.getGameOverPanel().getBombaExplosao().getImage(), 0, 0, null);
 			tela.getGameOverPanel().getJogarNovamente().repaint();
 			tela.getGameOverPanel().getSair().repaint();
@@ -97,6 +108,7 @@ public class Gameloop {
 		
 		
 		g.dispose(); 
-	    g2.dispose();
+//	    g2.dispose();
+		tela.getBuffer1().show();
 	}
 }

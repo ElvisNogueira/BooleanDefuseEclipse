@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
@@ -19,6 +20,7 @@ public class Tela extends JFrame{
     private GameOverPanel gameOverPanel;
     private MenuPanel menuPanel;
     private BufferedImage buffer;;
+    BufferStrategy buffer1;
     
     public Tela(JogoPanel jogoPanel, GameOverPanel gameOverPanel, MenuPanel menuPanel) {
     	super("Boolean Defuse");
@@ -29,6 +31,7 @@ public class Tela extends JFrame{
         setLayout(null);
         
         buffer = new BufferedImage(Util.LARGURA, Util.ALTURA, BufferedImage.TYPE_INT_RGB);
+        
         
         this.jogoPanel = jogoPanel;
         this.gameOverPanel = gameOverPanel;
@@ -58,5 +61,15 @@ public class Tela extends JFrame{
 	public MenuPanel getMenuPanel() {
 		return menuPanel;
 	}
+
+	public BufferStrategy getBuffer1() {
+		return buffer1;
+	}
+
+	public void setBuffer1(BufferStrategy buffer1) {
+		this.buffer1 = buffer1;
+	}
     
+	
+	
 }

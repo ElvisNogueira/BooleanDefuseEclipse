@@ -24,7 +24,7 @@ public class Util {
     public static boolean explodir = false;
     public static final int ALTURA=768, LARGURA=1366;
     public static final int ERRRO = 0, SUCESSO = 1, INFO = 2;
-    public static final int TEMPO_JOGO_SEG = 5;
+    public static final int TEMPO_JOGO_SEG = 300;
     public static Font arial = new Font("Arial", Font.BOLD, 17);
     public static Font gabriola = new Font("Gabriola", Font.BOLD, 10);
     public static Color azulBic = new Color(25,78,146);
