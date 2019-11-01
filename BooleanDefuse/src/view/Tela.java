@@ -16,9 +16,11 @@ import model.Util;
  */
 public class Tela extends JFrame{
     private JogoPanel jogoPanel;
+    private GameOverPanel gameOverPanel;
+    private MenuPanel menuPanel;
     private BufferedImage buffer;;
     
-    public Tela(JogoPanel jogoPanel) {
+    public Tela(JogoPanel jogoPanel, GameOverPanel gameOverPanel, MenuPanel menuPanel) {
     	super("Boolean Defuse");
         setSize(Util.LARGURA, Util.ALTURA);
         setLocationRelativeTo(null);
@@ -29,7 +31,12 @@ public class Tela extends JFrame{
         buffer = new BufferedImage(Util.LARGURA, Util.ALTURA, BufferedImage.TYPE_INT_RGB);
         
         this.jogoPanel = jogoPanel;
+        this.gameOverPanel = gameOverPanel;
+        this.menuPanel = menuPanel;
+        
         add(this.jogoPanel);
+        add(menuPanel).setBounds(0, 0, Util.LARGURA, Util.ALTURA);
+        add(this.gameOverPanel).setBounds(0, 0, Util.LARGURA, Util.ALTURA);
         this.jogoPanel.setBounds(0, 0, Util.LARGURA, Util.ALTURA);
         
         setVisible(true);
@@ -43,9 +50,13 @@ public class Tela extends JFrame{
 	public BufferedImage getBuffer() {
 		return buffer;
 	}
-    
-    
-    
-    
+
+	public GameOverPanel getGameOverPanel() {
+		return gameOverPanel;
+	}
+
+	public MenuPanel getMenuPanel() {
+		return menuPanel;
+	}
     
 }

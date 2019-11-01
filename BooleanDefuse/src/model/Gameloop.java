@@ -58,9 +58,9 @@ public class Gameloop {
 			
 			g.setFont(Util.arial);
 			g.setColor(Util.azulBic);
-			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[0].getPalavra(), 350, 500);
-			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[1].getPalavra(), 350, 520);
-			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[2].getPalavra(), 350, 540);
+			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[0].getPalavra(), 310, 505);
+			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[1].getPalavra(), 310, 525);
+			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[2].getPalavra(), 310, 545);
 			
 			g.drawImage(bomba.getModuloMorse().getLedStatus().sprites[bomba.getModuloMorse().getLedStatus().aparencia], 
 					bomba.getModuloMorse().getLedStatus().posX, bomba.getModuloMorse().getLedStatus().posY, null);
@@ -81,10 +81,22 @@ public class Gameloop {
 			g.drawString(bomba.getModuloTesteMesa().getEntradas()[2]+"", 1010, 380);
 			
 			
-			g.dispose(); 
-		    g2.dispose();
+			//Gameover
 			
-			
+		}else if(tela.getMenuPanel().isVisible()) {
+			g.drawImage(tela.getMenuPanel().getMenuBG().getImage(), -35, 0, null);
+			tela.getMenuPanel().getSairButton().repaint();
+			tela.getMenuPanel().getPlayButton().repaint();
 		}
+		
+		if(tela.getGameOverPanel().isVisible()) {
+			g.drawImage(tela.getGameOverPanel().getBombaExplosao().getImage(), 0, 0, null);
+			tela.getGameOverPanel().getJogarNovamente().repaint();
+			tela.getGameOverPanel().getSair().repaint();
+		}
+		
+		
+		g.dispose(); 
+	    g2.dispose();
 	}
 }

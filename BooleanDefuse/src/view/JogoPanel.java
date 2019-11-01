@@ -25,7 +25,7 @@ import model.Util;
  * @author Elvis Nogueira
  */
 public class JogoPanel extends JPanel{
-    private ImageIcon bg,bombaExplosao;
+    private ImageIcon bg;
     private Bomba bomba;
     private JButton verdadeiroButton,falsoButton;
     private JTextArea perguntaModuloQuiz;
@@ -36,7 +36,7 @@ public class JogoPanel extends JPanel{
         setLayout(null);
         
         bg = new ImageIcon("Imagens/BACKGROUND.png");
-        bombaExplosao = new ImageIcon("Imagens/bombaExplode.png");
+       
         bomba = new Bomba();
         
         perguntaModuloQuiz = new JTextArea();
@@ -81,7 +81,7 @@ public class JogoPanel extends JPanel{
         add(perguntaModuloQuiz);
         
         
-        setVisible(true);
+        setVisible(false);
     }
 
 	public ImageIcon getBG() {
@@ -131,7 +131,8 @@ public class JogoPanel extends JPanel{
 	public JTextField getSaidaCod() {
 		return saidaCod;
 	}
-    
+  
+	
     
     
 }

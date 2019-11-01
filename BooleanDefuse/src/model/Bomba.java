@@ -26,8 +26,25 @@ public class Bomba {
     	moduloMorse = new ModuloMorse();
     	moduloTesteMesa = new ModuloTesteMesa();
     	
+    	
+    	
     	relogio = new Relogio();
-    	relogio.start();
+    	
+    	
+    }
+    
+    public void iniciarBomba() {
+    	moduloQuiz.initModQuiz();
+    	moduloFios.initModFios();
+    	moduloMorse.initModMorse();
+    	moduloTesteMesa.init();
+    	
+    	try {
+    		relogio.setTempo(Util.TEMPO_JOGO_SEG);
+        	relogio.start();
+		} catch (Exception e) {
+			reiniciarBomba();
+		}
     	
     }
     
@@ -47,6 +64,17 @@ public class Bomba {
     		relogio.suspend();
     		Sons.tocar("Sons/Bomb defused.wav");
     	}
+    }
+    
+    public boolean explodir() {
+    	if(Util.explodir) {
+    		relogio.suspend();
+    		Sons.tocar("Sons/bomba explosao.wav");
+    		
+    		return true;
+    	}
+    	
+    	return false;
     }
 
 	public ModuloFios getModuloFios() {

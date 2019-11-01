@@ -203,7 +203,7 @@ public class ModuloFios {
     				sprites[i].aparencia++;
     				Sons.tocar("Sons/alicate.wav");
     				if(!corrigirFiosCortados(i))
-    					JOptionPane.showMessageDialog(null, "Deuu ruim!");//colocar a explosão
+    					Util.explodir = true;
     				verificarStatus();
     				
     			}

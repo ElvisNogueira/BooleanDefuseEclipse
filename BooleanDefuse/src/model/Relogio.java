@@ -48,7 +48,6 @@ public class Relogio extends Thread{
         			tempo--;
     			}
     			
-    			
     		} catch (InterruptedException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();

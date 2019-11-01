@@ -11,16 +11,21 @@ import java.awt.event.MouseMotionListener;
 
 import model.Bomba;
 import model.Sons;
+import model.Util;
 import view.JogoPanel;
+import view.Tela;
 
 public class ControladorJogoPanel{
 	private JogoPanel jogoPanel;
+	private Tela tela;
 	Controlador c;
 
-	public ControladorJogoPanel(JogoPanel jogoPanel) {
+	public ControladorJogoPanel(JogoPanel jogoPanel,Tela tela) {
 		super();
 		this.jogoPanel = jogoPanel;
 		c = new Controlador();
+		
+		this.tela = tela;
 		
 		
 		this.jogoPanel.getVerdadeiroButton().addActionListener(c);
@@ -36,6 +41,12 @@ public class ControladorJogoPanel{
 		jogoPanel.getOperadorModMorse().addKeyListener(c);
 		jogoPanel.getResultadoModMorse().addKeyListener(c);
 		jogoPanel.getSaidaCod().addKeyListener(c);
+		
+		tela.getGameOverPanel().getSair().addActionListener(c);
+		tela.getGameOverPanel().getJogarNovamente().addActionListener(c);
+		
+		tela.getMenuPanel().getSairButton().addActionListener(c);
+		tela.getMenuPanel().getPlayButton().addActionListener(c);
 		
 	}
 	
@@ -72,15 +83,39 @@ public class ControladorJogoPanel{
 					}
 						
 				}
+				jogoPanel.getBomba().desativarBomba();
+			}			
+			
+			if(e.getSource()==tela.getGameOverPanel().getJogarNovamente()) {
+				tela.getGameOverPanel().setVisible(false);
+				Util.explodir = false;
+				jogoPanel.setVisible(true);
+				
+				jogoPanel.getBomba().reiniciarBomba();
+			}else if(e.getSource()==tela.getMenuPanel().getPlayButton()) {
+				tela.getMenuPanel().parar();
+				tela.getMenuPanel().setVisible(false);
+				tela.getJogoPanel().setVisible(true);
+				tela.getJogoPanel().getBomba().iniciarBomba();
+			}else if(e.getSource()==tela.getGameOverPanel().getSair()) {
+				tela.getMenuPanel().setVisible(true);
+				tela.getGameOverPanel().setVisible(false);
+			}else if(e.getSource()==tela.getMenuPanel().getSairButton()) {
+				System.exit(0);
 			}
-			jogoPanel.getBomba().desativarBomba();
 				
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
+			
 			jogoPanel.getBomba().getModuloFios().cortarFios(arg0.getX(), arg0.getY());
 			jogoPanel.getBomba().desativarBomba();
+			if(jogoPanel.getBomba().explodir()) {
+				jogoPanel.setVisible(false);
+				tela.getGameOverPanel().setVisible(true);
+			}
+			
 		}
 
 		@Override
