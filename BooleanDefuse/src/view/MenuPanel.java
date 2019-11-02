@@ -26,6 +26,7 @@ public class MenuPanel extends JPanel{
 		playButton.setIcon(new ImageIcon("Imagens/reproduzir.png"));
 		playButton.setBackground(Color.RED);
 		
+		
 		sairButton = new JButton();
 		sairButton.setIcon(new ImageIcon("Imagens/desligar.png"));
 		sairButton.setBackground(Color.RED);
