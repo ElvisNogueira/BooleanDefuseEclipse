@@ -13,6 +13,7 @@ public class MenuPanel extends JPanel{
 
 	private ImageIcon menuBG;
 	private JButton playButton,sairButton;
+	private Sons tema;
 
 	public MenuPanel() {
 //		tocar();
@@ -26,9 +27,11 @@ public class MenuPanel extends JPanel{
 		playButton.setBackground(Color.RED);
 		
 		sairButton = new JButton();
-		sairButton.setIcon(new ImageIcon("Imagens/sair.png"));
+		sairButton.setIcon(new ImageIcon("Imagens/desligar.png"));
 		sairButton.setBackground(Color.RED);
 		
+		tema = new Sons("Sons/tema.wav");
+		tema.tocarInstance();
 
 		add(playButton).setBounds(50, 650, 60, 60);
 		add(sairButton).setBounds(1246, 650, 60, 60);
@@ -54,6 +57,10 @@ public class MenuPanel extends JPanel{
 
 	public JButton getSairButton() {
 		return sairButton;
+	}
+
+	public Sons getTema() {
+		return tema;
 	}
 
 	

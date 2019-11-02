@@ -30,6 +30,7 @@ public class ControladorJogoPanel{
 		
 		this.jogoPanel.getVerdadeiroButton().addActionListener(c);
 		this.jogoPanel.getFalsoButton().addActionListener(c);
+		this.jogoPanel.getSairButton().addActionListener(c);
 		
 		this.jogoPanel.getVerdadeiroButton().addMouseListener(c);;
 		this.jogoPanel.getFalsoButton().addMouseListener(c);
@@ -95,13 +96,21 @@ public class ControladorJogoPanel{
 			}else if(e.getSource()==tela.getMenuPanel().getPlayButton()) {
 				tela.getMenuPanel().parar();
 				tela.getMenuPanel().setVisible(false);
+				tela.getMenuPanel().getTema().pararDeTocarInstance();
 				tela.getJogoPanel().setVisible(true);
 				tela.getJogoPanel().getBomba().iniciarBomba();
 			}else if(e.getSource()==tela.getGameOverPanel().getSair()) {
 				tela.getMenuPanel().setVisible(true);
+				tela.getMenuPanel().getTema().tocarInstance();
 				tela.getGameOverPanel().setVisible(false);
+				Util.explodir = false;
 			}else if(e.getSource()==tela.getMenuPanel().getSairButton()) {
 				System.exit(0);
+			}else if(e.getSource()==tela.getJogoPanel().getSairButton()) {
+				tela.getJogoPanel().getBomba().parar();
+				tela.getJogoPanel().setVisible(false);
+				tela.getMenuPanel().getTema().tocarInstance();
+				tela.getMenuPanel().setVisible(true);
 			}
 				
 		}

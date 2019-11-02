@@ -61,9 +61,17 @@ public class Bomba {
     
     public void desativarBomba() {
     	if(moduloFios.isStatus() && moduloQuiz.isStatus() && moduloMorse.isStatus() && moduloTesteMesa.isStatus()) {
-    		relogio.suspend();
+    		parar();
     		Sons.tocar("Sons/Bomb defused.wav");
     	}
+    }
+    
+    public void parar() {
+    	try {
+    		relogio.suspend();
+		} catch (Exception e) {
+			
+		}
     }
     
     public boolean explodir() {

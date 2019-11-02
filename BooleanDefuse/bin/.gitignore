@@ -1,5 +1,5 @@
-/model/
 /app/
-/dao/
-/view/
 /controller/
+/dao/
+/model/
+/view/

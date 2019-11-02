@@ -14,6 +14,21 @@ import view.Mensagem;
 
 public class Sons {
 	public static Clip clip;
+	public Clip clipInstance;
+	File soundFile;
+	AudioInputStream sound;
+	DataLine.Info info;
+	
+	public Sons(String urlSom) {
+		try {
+			soundFile = new File(urlSom);
+            sound = AudioSystem.getAudioInputStream(soundFile);
+            info = new DataLine.Info(Clip.class, sound.getFormat());
+            clipInstance = (Clip) AudioSystem.getLine(info);
+    } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+        	Mensagem.mostrar("Erro ao reproduzirr arquivo de audio", Util.ERRRO);
+    }
+	}
 	
 	public static void tocar(String urlSom){
 		try {
@@ -30,5 +45,18 @@ public class Sons {
     
 	public static void pararDeTocar(){
 		clip.close();
+    }
+	
+	public void tocarInstance(){
+		try {
+			clipInstance.open(sound);
+			clipInstance.start();
+        } catch (IOException | LineUnavailableException e) {
+            	Mensagem.mostrar("Erro ao reproduzir arquivo de audio", Util.ERRRO);
+        }
+	}
+    
+	public void pararDeTocarInstance(){
+		clipInstance.close();
     }
 }

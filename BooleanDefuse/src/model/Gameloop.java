@@ -87,6 +87,8 @@ public class Gameloop {
 			
 			tela.getJogoPanel().getSaidaCod().repaint();
 			
+			tela.getJogoPanel().getSairButton().repaint();
+			
 			//Gameover
 			
 		}else if(tela.getMenuPanel().isVisible()) {

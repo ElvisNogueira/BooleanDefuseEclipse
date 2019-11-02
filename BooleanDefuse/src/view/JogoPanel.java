@@ -27,9 +27,10 @@ import model.Util;
 public class JogoPanel extends JPanel{
     private ImageIcon bg;
     private Bomba bomba;
-    private JButton verdadeiroButton,falsoButton;
+    private JButton verdadeiroButton,falsoButton, sairButton;
     private JTextArea perguntaModuloQuiz;
     private JTextField elementoModMorse1, operadorModMorse, elementoModMorse2, resultadoModMorse, saidaCod;
+    
 
     public JogoPanel() {
         setSize(Util.LARGURA, Util.ALTURA);
@@ -56,6 +57,10 @@ public class JogoPanel extends JPanel{
         falsoButton.setLocation(735, 245);
         falsoButton.setBackground(new Color(172,161,155));
         
+        sairButton = new JButton();
+        sairButton.setIcon(new ImageIcon("Imagens/sair.png"));
+        sairButton.setBackground(Color.red);
+        
         elementoModMorse1 = new JTextField(1);
         operadorModMorse = new JTextField(2);
         elementoModMorse2 = new JTextField(1);
@@ -79,6 +84,8 @@ public class JogoPanel extends JPanel{
         add(verdadeiroButton);
         add(falsoButton);
         add(perguntaModuloQuiz);
+        
+        add(sairButton).setBounds(1250, 50, 60, 60);
         
         
         setVisible(false);
@@ -131,7 +138,12 @@ public class JogoPanel extends JPanel{
 	public JTextField getSaidaCod() {
 		return saidaCod;
 	}
+
+	public JButton getSairButton() {
+		return sairButton;
+	}
   
+	
 	
     
     
