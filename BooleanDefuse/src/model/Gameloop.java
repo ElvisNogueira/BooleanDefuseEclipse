@@ -74,11 +74,12 @@ public class Gameloop {
 			g.drawString(bomba.getModuloTesteMesa().getEntradas()[1]+"", 990, 380);
 			g.drawString(bomba.getModuloTesteMesa().getEntradas()[2]+"", 1010, 380);
 			
+			
+			
+			
+			
 			//Modulo Morse
-			tela.getJogoPanel().getElementoModMorse1().repaint();
-			tela.getJogoPanel().getOperadorModMorse().repaint();
-			tela.getJogoPanel().getElementoModMorse2().repaint();
-			tela.getJogoPanel().getResultadoModMorse().repaint();
+			
 			
 			
 			tela.getJogoPanel().getVerdadeiroButton().repaint();
@@ -89,7 +90,18 @@ public class Gameloop {
 			
 			tela.getJogoPanel().getSairButton().repaint();
 			
-			//Gameover
+			//VENCEU
+			
+			if(Util.flagDesarmada) {
+				g.drawImage(tela.getJogoPanel().getVenceu().getImage(), 0, 500, null);
+			}else {
+				tela.getJogoPanel().getElementoModMorse1().repaint();
+				tela.getJogoPanel().getOperadorModMorse().repaint();
+				tela.getJogoPanel().getElementoModMorse2().repaint();
+				tela.getJogoPanel().getResultadoModMorse().repaint();
+			}
+				
+				
 			
 		}else if(tela.getMenuPanel().isVisible()) {
 			g.drawImage(tela.getMenuPanel().getMenuBG().getImage(), -35, 0, null);

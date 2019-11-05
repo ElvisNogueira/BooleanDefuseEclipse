@@ -25,7 +25,7 @@ import model.Util;
  * @author Elvis Nogueira
  */
 public class JogoPanel extends JPanel{
-    private ImageIcon bg;
+    private ImageIcon bg, venceu;
     private Bomba bomba;
     private JButton verdadeiroButton,falsoButton, sairButton;
     private JTextArea perguntaModuloQuiz;
@@ -37,6 +37,7 @@ public class JogoPanel extends JPanel{
         setLayout(null);
         
         bg = new ImageIcon("Imagens/BACKGROUND.png");
+        venceu = new ImageIcon("Imagens/VENCEU.png");
        
         bomba = new Bomba();
         
@@ -141,6 +142,10 @@ public class JogoPanel extends JPanel{
 
 	public JButton getSairButton() {
 		return sairButton;
+	}
+
+	public ImageIcon getVenceu() {
+		return venceu;
 	}
   
 	

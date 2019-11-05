@@ -29,6 +29,7 @@ public class Util {
     public static Font gabriola = new Font("Gabriola", Font.BOLD, 10);
     public static Color azulBic = new Color(25,78,146);
     public static final int FPS = 15;
+    public static boolean flagDesarmada = false;
     
     public static Font getFont( String nomeFonte, int tamanho ){  
         Font font = null;  

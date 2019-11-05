@@ -90,18 +90,34 @@ public class ControladorJogoPanel{
 			if(e.getSource()==tela.getGameOverPanel().getJogarNovamente()) {
 				tela.getGameOverPanel().setVisible(false);
 				Util.explodir = false;
-				jogoPanel.setVisible(true);
+				
+				
+				jogoPanel.getElementoModMorse1().setText("");
+				jogoPanel.getElementoModMorse2().setText("");
+				jogoPanel.getOperadorModMorse().setText("");
+				jogoPanel.getResultadoModMorse().setText("");
+				jogoPanel.getSaidaCod().setText("");
 				
 				jogoPanel.getBomba().reiniciarBomba();
+				jogoPanel.setVisible(true);
+				
+				
 			}else if(e.getSource()==tela.getMenuPanel().getPlayButton()) {
 				tela.getMenuPanel().parar();
 				tela.getMenuPanel().setVisible(false);
 				tela.getMenuPanel().getTema().pararDeTocarInstance();
+				
+				jogoPanel.getElementoModMorse1().setText("");
+				jogoPanel.getElementoModMorse2().setText("");
+				jogoPanel.getOperadorModMorse().setText("");
+				jogoPanel.getResultadoModMorse().setText("");
+				jogoPanel.getSaidaCod().setText("");
+				
 				tela.getJogoPanel().setVisible(true);
 				tela.getJogoPanel().getBomba().iniciarBomba();
 			}else if(e.getSource()==tela.getGameOverPanel().getSair()) {
 				tela.getMenuPanel().setVisible(true);
-				tela.getMenuPanel().getTema().tocarInstance();
+				tela.getMenuPanel().reiniciarTema();
 				tela.getGameOverPanel().setVisible(false);
 				Util.explodir = false;
 			}else if(e.getSource()==tela.getMenuPanel().getSairButton()) {
@@ -111,6 +127,8 @@ public class ControladorJogoPanel{
 				tela.getJogoPanel().setVisible(false);
 				tela.getMenuPanel().getTema().tocarInstance();
 				tela.getMenuPanel().setVisible(true);
+				Util.flagDesarmada = false;
+				tela.getMenuPanel().reiniciarTema();
 			}
 				
 		}

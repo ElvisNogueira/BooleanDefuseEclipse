@@ -31,7 +31,7 @@ public class App {
 		MenuPanel menuPanel = new MenuPanel();
 		
 		tela = new Tela(jogoPainel, gameOverPanel,menuPanel);
-		 tela.createBufferStrategy(3);
+		 tela.createBufferStrategy(4);
 		 tela.setBuffer1( tela.getBufferStrategy());
 	        
 		ThreadDesenhar desenhar = new ThreadDesenhar(tela);

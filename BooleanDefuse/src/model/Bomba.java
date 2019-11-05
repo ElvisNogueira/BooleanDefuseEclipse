@@ -63,6 +63,7 @@ public class Bomba {
     	if(moduloFios.isStatus() && moduloQuiz.isStatus() && moduloMorse.isStatus() && moduloTesteMesa.isStatus()) {
     		parar();
     		Sons.tocar("Sons/Bomb defused.wav");
+    		Util.flagDesarmada = true;
     	}
     }
     

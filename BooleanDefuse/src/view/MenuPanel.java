@@ -40,6 +40,11 @@ public class MenuPanel extends JPanel{
 
 		setVisible(true);
 	}
+	
+	public void reiniciarTema() {
+		setTema(new Sons("Sons/tema.wav"));
+		tema.tocarInstance();
+	}
 
 	public void tocar() {
 		Sons.tocar("Sons/tema.wav");
@@ -62,6 +67,10 @@ public class MenuPanel extends JPanel{
 
 	public Sons getTema() {
 		return tema;
+	}
+
+	public void setTema(Sons tema) {
+		this.tema = tema;
 	}
 
 	
