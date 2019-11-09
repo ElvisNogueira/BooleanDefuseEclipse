@@ -17,6 +17,13 @@ public class Mensagem {
 		case Util.INFO:
 			JOptionPane.showMessageDialog(null, mensagem, "Info", JOptionPane.INFORMATION_MESSAGE);			
 			break;
+			
 		}
+	}
+	
+	public static int mostrarPergunta (String mensagem) {
+		Object[] options = { "Sim", "Não" };
+		return JOptionPane.showOptionDialog(null, mensagem, "Confirmação", 
+				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 	}
 }

@@ -13,12 +13,14 @@ import model.Bomba;
 import model.Sons;
 import model.Util;
 import view.JogoPanel;
+import view.Mensagem;
 import view.Tela;
 
 public class ControladorJogoPanel{
 	private JogoPanel jogoPanel;
 	private Tela tela;
 	Controlador c;
+	int resposta;
 
 	public ControladorJogoPanel(JogoPanel jogoPanel,Tela tela) {
 		super();
@@ -116,19 +118,41 @@ public class ControladorJogoPanel{
 				tela.getJogoPanel().setVisible(true);
 				tela.getJogoPanel().getBomba().iniciarBomba();
 			}else if(e.getSource()==tela.getGameOverPanel().getSair()) {
-				tela.getMenuPanel().setVisible(true);
-				tela.getMenuPanel().reiniciarTema();
-				tela.getGameOverPanel().setVisible(false);
-				Util.explodir = false;
+				resposta = Mensagem.mostrarPergunta("Deseja realmente voltar para o menu?");
+				switch (resposta) {
+				case 0:
+					tela.getMenuPanel().setVisible(true);
+					tela.getMenuPanel().reiniciarTema();
+					tela.getGameOverPanel().setVisible(false);
+					Util.explodir = false;
+					break;
+				default:
+					break;
+				}
 			}else if(e.getSource()==tela.getMenuPanel().getSairButton()) {
-				System.exit(0);
-			}else if(e.getSource()==tela.getJogoPanel().getSairButton()) {
-				tela.getJogoPanel().getBomba().parar();
-				tela.getJogoPanel().setVisible(false);
-				tela.getMenuPanel().getTema().tocarInstance();
-				tela.getMenuPanel().setVisible(true);
-				Util.flagDesarmada = false;
-				tela.getMenuPanel().reiniciarTema();
+				resposta = Mensagem.mostrarPergunta("Deseja realmente sair do jogo?");
+				switch (resposta) {
+				case 0:
+					System.exit(0);
+					break;
+				default:
+					break;
+				}
+				
+			}else if(e.getSource()==tela.getJogoPanel().getSairButton()) {	
+				resposta = Mensagem.mostrarPergunta("Deseja realmente voltar para o menu?");
+				switch (resposta) {
+				case 0:
+					tela.getJogoPanel().getBomba().parar();
+					tela.getJogoPanel().setVisible(false);
+					tela.getMenuPanel().getTema().tocarInstance();
+					tela.getMenuPanel().setVisible(true);
+					Util.flagDesarmada = false;
+					tela.getMenuPanel().reiniciarTema();
+					break;
+				default:
+					break;
+				}
 			}
 				
 		}
