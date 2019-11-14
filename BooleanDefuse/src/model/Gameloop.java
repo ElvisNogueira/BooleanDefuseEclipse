@@ -10,6 +10,7 @@ import view.Tela;
 
 public class Gameloop {
 	public static Bomba bomba;
+	public static int[] relogio;
 	
 	public static void desenhar(Tela tela){
 		
@@ -92,16 +93,19 @@ public class Gameloop {
 			
 			//VENCEU
 			
-			if(Util.flagDesarmada) {
-				g.drawImage(tela.getJogoPanel().getVenceu().getImage(), 0, 500, null);
-			}else {
-				tela.getJogoPanel().getElementoModMorse1().repaint();
-				tela.getJogoPanel().getOperadorModMorse().repaint();
-				tela.getJogoPanel().getElementoModMorse2().repaint();
-				tela.getJogoPanel().getResultadoModMorse().repaint();
-			}
+//			if(Util.flagDesarmada) {
+//				g.drawImage(tela.getJogoPanel().getVenceu().getImage(), 0, 500, null);
+//			}else {
+//				tela.getJogoPanel().getElementoModMorse1().repaint();
+//				tela.getJogoPanel().getOperadorModMorse().repaint();
+//				tela.getJogoPanel().getElementoModMorse2().repaint();
+//				tela.getJogoPanel().getResultadoModMorse().repaint();
+//			}
 				
-				
+			tela.getJogoPanel().getElementoModMorse1().repaint();
+			tela.getJogoPanel().getOperadorModMorse().repaint();
+			tela.getJogoPanel().getElementoModMorse2().repaint();
+			tela.getJogoPanel().getResultadoModMorse().repaint();
 			
 		}else if(tela.getMenuPanel().isVisible()) {
 			g.drawImage(tela.getMenuPanel().getMenuBG().getImage(), -35, 0, null);
@@ -116,6 +120,23 @@ public class Gameloop {
 				bomba.explodir();
 			}
 			g.drawImage(tela.getGameOverPanel().getBombaExplosao().getImage(), 0, 0, null);
+			tela.getGameOverPanel().getJogarNovamente().repaint();
+			tela.getGameOverPanel().getSair().repaint();
+		}
+		
+		if(Util.flagDesarmada) {
+			tela.getJogoPanel().setVisible(false);
+			tela.getGameOverPanel().setVisible(true);
+			g.drawImage(tela.getGameOverPanel().getImagemSucesso().getImage(), -35, 0, null);
+			int tempoDec = tela.getJogoPanel().getBomba().getRelogio().getTempo();
+			
+			g.setFont(Util.getFont("Anton-Regular",40));
+			g.setColor(Color.white);
+			
+			relogio = tela.getJogoPanel().getBomba().getRelogio().calcularHora(Util.TEMPO_JOGO_SEG - tempoDec);
+			
+			g.drawString(relogio[0]+""+relogio[1]+":"+relogio[2]+""+relogio[3], 670, 670);
+			
 			tela.getGameOverPanel().getJogarNovamente().repaint();
 			tela.getGameOverPanel().getSair().repaint();
 		}

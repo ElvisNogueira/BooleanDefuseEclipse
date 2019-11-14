@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.JOptionPane;
+
 import model.Bomba;
 import model.Sons;
 import model.Util;
@@ -86,13 +88,15 @@ public class ControladorJogoPanel{
 					}
 						
 				}
-				jogoPanel.getBomba().desativarBomba();
+				if(jogoPanel.getBomba().desativarBomba()) {
+					tela.getGameOverPanel().setVisible(true);
+				}
 			}			
 			
 			if(e.getSource()==tela.getGameOverPanel().getJogarNovamente()) {
 				tela.getGameOverPanel().setVisible(false);
 				Util.explodir = false;
-				
+				Util.flagDesarmada = false;
 				
 				jogoPanel.getElementoModMorse1().setText("");
 				jogoPanel.getElementoModMorse2().setText("");
@@ -103,7 +107,7 @@ public class ControladorJogoPanel{
 				jogoPanel.getBomba().reiniciarBomba();
 				jogoPanel.setVisible(true);
 				
-				
+				Sons.tocar("Sons/cap_priece.wav");		
 			}else if(e.getSource()==tela.getMenuPanel().getPlayButton()) {
 				tela.getMenuPanel().parar();
 				tela.getMenuPanel().setVisible(false);
@@ -117,6 +121,7 @@ public class ControladorJogoPanel{
 				
 				tela.getJogoPanel().setVisible(true);
 				tela.getJogoPanel().getBomba().iniciarBomba();
+				Sons.tocar("Sons/cap_priece.wav");
 			}else if(e.getSource()==tela.getGameOverPanel().getSair()) {
 				resposta = Mensagem.mostrarPergunta("Deseja realmente voltar para o menu?");
 				switch (resposta) {
@@ -125,6 +130,7 @@ public class ControladorJogoPanel{
 					tela.getMenuPanel().reiniciarTema();
 					tela.getGameOverPanel().setVisible(false);
 					Util.explodir = false;
+					Util.flagDesarmada = false;
 					break;
 				default:
 					break;

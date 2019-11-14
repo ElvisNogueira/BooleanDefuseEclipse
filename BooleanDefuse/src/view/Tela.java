@@ -8,6 +8,7 @@ package view;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import model.Util;
 
@@ -24,6 +25,7 @@ public class Tela extends JFrame{
     
     public Tela(JogoPanel jogoPanel, GameOverPanel gameOverPanel, MenuPanel menuPanel) {
     	super("Boolean Defuse");
+    	setIconImage(new ImageIcon("Imagens/icone.png").getImage());
         setSize(Util.LARGURA, Util.ALTURA);
         setLocationRelativeTo(null);
         setResizable(false);

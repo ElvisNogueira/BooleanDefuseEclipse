@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import model.Util;
 
 public class GameOverPanel extends JPanel{
-	private ImageIcon bombaExplosao;
+	private ImageIcon bombaExplosao, imagemSucesso;
 	private JButton jogarNovamente,sair;
 	
 	public GameOverPanel() {
@@ -17,6 +17,7 @@ public class GameOverPanel extends JPanel{
         setLayout(null);
         
         bombaExplosao = new ImageIcon("Imagens/bombaGameOver.png");
+        imagemSucesso = new ImageIcon("Imagens/tela venceu.png");
         
         jogarNovamente = new JButton();
         jogarNovamente.setIcon(new ImageIcon("Imagens/reiniciar.png"));
@@ -46,6 +47,10 @@ public class GameOverPanel extends JPanel{
 
 	public JButton getSair() {
 		return sair;
+	}
+
+	public ImageIcon getImagemSucesso() {
+		return imagemSucesso;
 	}
 
 	
