@@ -17,7 +17,7 @@ public class GameOverPanel extends JPanel{
         setLayout(null);
         
         bombaExplosao = new ImageIcon("Imagens/bombaGameOver.png");
-        imagemSucesso = new ImageIcon("Imagens/tela venceu.png");
+        imagemSucesso = new ImageIcon("Imagens/tela ganhou.png");
         
         jogarNovamente = new JButton();
         jogarNovamente.setIcon(new ImageIcon("Imagens/reiniciar.png"));
