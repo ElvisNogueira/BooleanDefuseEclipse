@@ -30,7 +30,7 @@ private static XStream xstream = new XStream(new DomDriver());
 	            escrever.close();
 	            
 	        } catch (FileNotFoundException e) {
-	           Mensagem.mostrar("Erro ao criar XML", Util.ERRRO);
+	           Mensagem.mostrar("Erro ao criar arquivo "+nomeArq+".xml", Util.ERRRO);
 	        }        
 		
 	}
@@ -41,7 +41,7 @@ private static XStream xstream = new XStream(new DomDriver());
             
             return (ArrayList<VocabuloMorse>) xstream.fromXML(leitor);
         } catch (FileNotFoundException ex) {
-            Mensagem.mostrar("Erro ao ler XML", Util.ERRRO);
+        	Mensagem.mostrar("Erro ao ler XML! Verifque se o arquivo do endereço \"XML/"+nomeArq+".xml\" está na pasta!", Util.ERRRO);
         }
          
         return null;         

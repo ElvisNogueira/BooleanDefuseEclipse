@@ -33,7 +33,7 @@ public class PerguntasDao {
 	            escrever.close();
 	            
 	        } catch (FileNotFoundException e) {
-	           Mensagem.mostrar("Erro ao criar XML", Util.ERRRO);
+	           Mensagem.mostrar("Erro ao criar arquivo Perguntas.xml!", Util.ERRRO);
 	        }        
 		
 	}
@@ -44,7 +44,7 @@ public class PerguntasDao {
             
             return (ArrayList<Perguntas>) xstream.fromXML(leitor);
         } catch (FileNotFoundException ex) {
-            Mensagem.mostrar("Erro ao ler XML", Util.ERRRO);
+        	Mensagem.mostrar("Erro ao ler XML! Verifque se o arquivo do endereço \"XML/Perguntas.xml\" está na pasta!", Util.ERRRO);
         }
          
         return null;         

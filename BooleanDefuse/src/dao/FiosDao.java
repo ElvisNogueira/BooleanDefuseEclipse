@@ -32,7 +32,7 @@ public class FiosDao {
 	            escrever.close();
 	            
 	        } catch (FileNotFoundException e) {
-	           Mensagem.mostrar("Erro ao criar XML", Util.ERRRO);
+	           Mensagem.mostrar("Erro ao criar arquivo Fios.xml", Util.ERRRO);
 	        }        
 		
 	}
@@ -43,7 +43,7 @@ public class FiosDao {
             
             return (ArrayList<Fios>) xstream.fromXML(leitor);
         } catch (FileNotFoundException ex) {
-            Mensagem.mostrar("Erro ao ler XML", Util.ERRRO);
+            Mensagem.mostrar("Erro ao ler XML! Verifque se o arquivo do endereço \"XML/Fios.xml\" está na pasta!", Util.ERRRO);
         }
          
         return null;         

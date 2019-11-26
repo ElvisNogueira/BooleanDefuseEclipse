@@ -26,7 +26,7 @@ public class ModuloQuiz {
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 785, 170);
 		} catch (IOException e) {
-			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
+			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computado!", Util.ERRRO);
 		}
     	
     	initModQuiz();

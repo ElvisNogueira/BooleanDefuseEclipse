@@ -25,10 +25,15 @@ public class ModuloTesteMesa {
 	public ModuloTesteMesa() {
 		entradas = new int[3];
 		try {
-			simbolo = new Sprite("Imagens/simbCod.png", 0, 194, 111, 1, 3, 895, 225);
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 1045, 170);
 		} catch (IOException e) {
-			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
+			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computado!", Util.ERRRO);
+		}
+		
+		try {
+			simbolo = new Sprite("Imagens/simbCod.png", 0, 194, 111, 1, 3, 895, 225);
+		} catch (IOException e) {
+			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/simbCod.png\" está no seu computado!", Util.ERRRO);
 		}
 
 		init();

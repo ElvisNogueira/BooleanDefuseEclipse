@@ -28,7 +28,7 @@ public class ModuloMorse {
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 455);
 		} catch (IOException e) {
-			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
+			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computado!", Util.ERRRO);
 		}
     	
     	initModMorse();

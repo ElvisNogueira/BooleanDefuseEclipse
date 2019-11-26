@@ -26,7 +26,7 @@ public class Sons {
             info = new DataLine.Info(Clip.class, sound.getFormat());
             clipInstance = (Clip) AudioSystem.getLine(info);
     } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
-        	Mensagem.mostrar("Erro ao reproduzirr arquivo de audio", Util.ERRRO);
+        	Mensagem.mostrar("Erro ao reproduzir arquivo de audio! Verifque se o arquivo do endereço \""+urlSom+"\" está na pasta!", Util.ERRRO);
     }
 	}
 	
@@ -39,7 +39,7 @@ public class Sons {
 	            clip.open(sound);
 	            clip.start();
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
-            	Mensagem.mostrar("Erro ao reproduzirr arquivo de audio", Util.ERRRO);
+            	Mensagem.mostrar("Erro ao reproduzir arquivo de audio! Verifque se o arquivo do endereço \""+urlSom+"\" está na pasta!", Util.ERRRO);
         }
 	}
     

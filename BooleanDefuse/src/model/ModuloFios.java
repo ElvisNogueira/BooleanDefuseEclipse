@@ -32,7 +32,7 @@ public class ModuloFios {
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 170);
 		} catch (IOException e) {
-			Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
+			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computado!", Util.ERRRO);
 		}
     	
     	initModFios();
@@ -90,7 +90,7 @@ public class ModuloFios {
 				sprites [i] = new Sprite("Imagens/Fios v19.png", setarAparenciaSprite(vetorFios[i].getPosicao(), vetorFios[i].getCor()), 
 						46, 133, 5, 9, posicaoXFios(i, vetorFios[i]), 235);
 			} catch (IOException e) {
-				Mensagem.mostrar("Erro ao carregar Sprite", Util.ERRRO);
+				Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/Fios v19.png\" está no seu computado!", Util.ERRRO);
 			}
     	}
     	
