@@ -1,4 +1,7 @@
-/model/
-/view/
+/app/
 /controller/
 /dao/
+/model/
+/view/
+/resource/
+/resources/
