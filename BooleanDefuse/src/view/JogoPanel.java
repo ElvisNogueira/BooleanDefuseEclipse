@@ -85,7 +85,7 @@ public class JogoPanel extends JPanel{
         ajudaTesteMesaButton = new JButton("");
         ajudaTesteMesaButton.setIcon(ajudaIcon);
         ajudaTesteMesaButton.setSize(30, 30);
-        ajudaTesteMesaButton.setLocation(900, 140);
+        ajudaTesteMesaButton.setLocation(882, 140);
         
         
         elementoModMorse1 = new JTextField(1);
