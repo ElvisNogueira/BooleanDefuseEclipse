@@ -36,8 +36,6 @@ public class App {
 	        
 		ThreadDesenhar desenhar = new ThreadDesenhar(tela);
 		desenhar.start();
-//		tela.getMenuPanel().setVisible(false);
-//		tela.getJogoPanel().setVisible(true);
 
 		
 		ControladorJogoPanel cjp = new ControladorJogoPanel(tela.getJogoPanel(),tela);

@@ -46,10 +46,6 @@ public class ControladorJogoPanel{
 		jogoPanel.getOperadorModMorse().addKeyListener(c);
 		jogoPanel.getResultadoModMorse().addKeyListener(c);
 		jogoPanel.getSaidaCod().addKeyListener(c);
-		jogoPanel.getAjudaFiosButton().addActionListener(c);
-		jogoPanel.getAjudaQuizButton().addActionListener(c);
-		jogoPanel.getAjudaTesteMesaButton().addActionListener(c);
-		jogoPanel.getAjudaMorseButton().addActionListener(c);
 		
 		tela.getGameOverPanel().getSair().addActionListener(c);
 		tela.getGameOverPanel().getJogarNovamente().addActionListener(c);
@@ -57,16 +53,12 @@ public class ControladorJogoPanel{
 		tela.getMenuPanel().getSairButton().addActionListener(c);
 		tela.getMenuPanel().getPlayButton().addActionListener(c);
 		
-		
-		
 	}
 	
 	private class Controlador implements ActionListener, MouseListener, MouseMotionListener, KeyListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			
 			Sons.tocar("Sons/botao.wav");
 			if(!jogoPanel.getBomba().getModuloQuiz().isStatus()) {
 				if(e.getSource()==jogoPanel.getVerdadeiroButton()) {
@@ -112,10 +104,7 @@ public class ControladorJogoPanel{
 				jogoPanel.getResultadoModMorse().setText("");
 				jogoPanel.getSaidaCod().setText("");
 				
-				jogoPanel.esconderAjuda();
-				
 				jogoPanel.getBomba().reiniciarBomba();
-				jogoPanel.getAjuda().aparencia=1;
 				jogoPanel.setVisible(true);
 				
 				Sons.tocar("Sons/cap_priece.wav");		
@@ -129,8 +118,6 @@ public class ControladorJogoPanel{
 				jogoPanel.getOperadorModMorse().setText("");
 				jogoPanel.getResultadoModMorse().setText("");
 				jogoPanel.getSaidaCod().setText("");
-				
-				jogoPanel.esconderAjuda();
 				
 				tela.getJogoPanel().setVisible(true);
 				tela.getJogoPanel().getBomba().iniciarBomba();
@@ -171,39 +158,6 @@ public class ControladorJogoPanel{
 					break;
 				default:
 					break;
-				}
-			}else if(e.getSource()==jogoPanel.getAjudaFiosButton()) {
-				if(jogoPanel.getAjuda().aparencia == 0) {
-					jogoPanel.esconderAjuda();
-				}else {
-					jogoPanel.getAjuda().aparencia = 0;
-					jogoPanel.getAjuda().posX = 245;
-					jogoPanel.getAjuda().posY = 190;
-				}
-				
-			}else if(e.getSource()==jogoPanel.getAjudaQuizButton()) {
-				if(jogoPanel.getAjuda().aparencia == 2) {
-					jogoPanel.esconderAjuda();
-				}else {
-					jogoPanel.getAjuda().aparencia = 2;
-					jogoPanel.getAjuda().posX = 605;
-					jogoPanel.getAjuda().posY = 190;
-				}
-			}else if(e.getSource()==jogoPanel.getAjudaTesteMesaButton()) {
-				if(jogoPanel.getAjuda().aparencia == 4) {
-					jogoPanel.esconderAjuda();
-				}else {
-					jogoPanel.getAjuda().aparencia = 4;
-					jogoPanel.getAjuda().posX = 855;
-					jogoPanel.getAjuda().posY = 190;
-				}
-			}else if(e.getSource()==jogoPanel.getAjudaMorseButton()) {
-				if(jogoPanel.getAjuda().aparencia == 6) {
-					jogoPanel.esconderAjuda();
-				}else {
-					jogoPanel.getAjuda().aparencia = 6;
-					jogoPanel.getAjuda().posX = 245;
-					jogoPanel.getAjuda().posY = 195;
 				}
 			}
 				

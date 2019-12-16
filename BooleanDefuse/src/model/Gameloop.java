@@ -91,8 +91,6 @@ public class Gameloop {
 			
 			tela.getJogoPanel().getSairButton().repaint();
 			
-			
-			
 			//VENCEU
 			
 //			if(Util.flagDesarmada) {
@@ -108,15 +106,6 @@ public class Gameloop {
 			tela.getJogoPanel().getOperadorModMorse().repaint();
 			tela.getJogoPanel().getElementoModMorse2().repaint();
 			tela.getJogoPanel().getResultadoModMorse().repaint();
-			
-//			tela.getJogoPanel().getAjudaFiosButton().repaint();
-//			tela.getJogoPanel().getAjudaMorseButton().repaint();
-//			tela.getJogoPanel().getAjudaQuizButton().repaint();
-//			tela.getJogoPanel().getAjudaTesteMesaButton().repaint();
-			
-
-			g.drawImage(tela.getJogoPanel().getAjuda().sprites[tela.getJogoPanel().getAjuda().aparencia], 
-					tela.getJogoPanel().getAjuda().posX, tela.getJogoPanel().getAjuda().posY, null);
 			
 		}else if(tela.getMenuPanel().isVisible()) {
 			g.drawImage(tela.getMenuPanel().getMenuBG().getImage(), -35, 0, null);
@@ -151,7 +140,6 @@ public class Gameloop {
 			tela.getGameOverPanel().getJogarNovamente().repaint();
 			tela.getGameOverPanel().getSair().repaint();
 		}
-		
 		
 		
 		g.dispose(); 
