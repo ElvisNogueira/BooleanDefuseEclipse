@@ -126,6 +126,13 @@ public class JogoPanel extends JPanel{
         
         setVisible(false);
     }
+    
+    
+    public void esconderAjuda() {
+		if(ajuda.aparencia%2==0) {
+			ajuda.aparencia++;
+		}
+	}
 
 	public ImageIcon getBG() {
 		return bg;

@@ -109,10 +109,10 @@ public class Gameloop {
 			tela.getJogoPanel().getElementoModMorse2().repaint();
 			tela.getJogoPanel().getResultadoModMorse().repaint();
 			
-			tela.getJogoPanel().getAjudaFiosButton().repaint();
-			tela.getJogoPanel().getAjudaMorseButton().repaint();
-			tela.getJogoPanel().getAjudaQuizButton().repaint();
-			tela.getJogoPanel().getAjudaTesteMesaButton().repaint();
+//			tela.getJogoPanel().getAjudaFiosButton().repaint();
+//			tela.getJogoPanel().getAjudaMorseButton().repaint();
+//			tela.getJogoPanel().getAjudaQuizButton().repaint();
+//			tela.getJogoPanel().getAjudaTesteMesaButton().repaint();
 			
 
 			g.drawImage(tela.getJogoPanel().getAjuda().sprites[tela.getJogoPanel().getAjuda().aparencia], 

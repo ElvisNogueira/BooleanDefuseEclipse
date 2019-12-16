@@ -31,13 +31,13 @@ public class App {
 		MenuPanel menuPanel = new MenuPanel();
 		
 		tela = new Tela(jogoPainel, gameOverPanel,menuPanel);
-		 tela.createBufferStrategy(2);
+		 tela.createBufferStrategy(4);
 		 tela.setBuffer1( tela.getBufferStrategy());
 	        
 		ThreadDesenhar desenhar = new ThreadDesenhar(tela);
 		desenhar.start();
-		tela.getMenuPanel().setVisible(false);
-		tela.getJogoPanel().setVisible(true);
+//		tela.getMenuPanel().setVisible(false);
+//		tela.getJogoPanel().setVisible(true);
 
 		
 		ControladorJogoPanel cjp = new ControladorJogoPanel(tela.getJogoPanel(),tela);
