@@ -114,6 +114,10 @@ public class Gameloop {
 			tela.getJogoPanel().getAjudaQuizButton().repaint();
 			tela.getJogoPanel().getAjudaTesteMesaButton().repaint();
 			
+
+			g.drawImage(tela.getJogoPanel().getAjuda().sprites[tela.getJogoPanel().getAjuda().aparencia], 
+					tela.getJogoPanel().getAjuda().posX, tela.getJogoPanel().getAjuda().posY, null);
+			
 		}else if(tela.getMenuPanel().isVisible()) {
 			g.drawImage(tela.getMenuPanel().getMenuBG().getImage(), -35, 0, null);
 			tela.getMenuPanel().getSairButton().repaint();
@@ -147,6 +151,7 @@ public class Gameloop {
 			tela.getGameOverPanel().getJogarNovamente().repaint();
 			tela.getGameOverPanel().getSair().repaint();
 		}
+		
 		
 		
 		g.dispose(); 

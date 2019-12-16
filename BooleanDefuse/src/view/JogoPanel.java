@@ -30,7 +30,7 @@ public class JogoPanel extends JPanel{
     private Bomba bomba;
     private JButton verdadeiroButton,falsoButton, sairButton, ajudaFiosButton, ajudaQuizButton, 
     	ajudaTesteMesaButton, ajudaMorseButton;
-    private Sprite ajudaFios, ajudaQuiz, ajudaTesteMesa, ajudaMorse;
+    private Sprite ajuda;
     private JTextArea perguntaModuloQuiz;
     private JTextField elementoModMorse1, operadorModMorse, elementoModMorse2, resultadoModMorse, saidaCod;
     private ImageIcon ajudaIcon;
@@ -75,7 +75,7 @@ public class JogoPanel extends JPanel{
         ajudaMorseButton = new JButton();
         ajudaMorseButton.setIcon(ajudaIcon);
         ajudaMorseButton.setSize(30, 30);
-        ajudaMorseButton.setLocation(100, 572);
+        ajudaMorseButton.setLocation(266, 430);
         
         ajudaQuizButton = new JButton();
         ajudaQuizButton.setIcon(ajudaIcon);
@@ -100,7 +100,12 @@ public class JogoPanel extends JPanel{
         resultadoModMorse.setHorizontalAlignment(resultadoModMorse.CENTER);
         saidaCod.setHorizontalAlignment(saidaCod.CENTER);
         
-        
+        try {
+			ajuda = new Sprite("Imagens/sprite dicas.png", 1, 482, 280, 4, 2, 281, 155);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
         
         add(elementoModMorse1).setBounds(330, 587, 30, 30);
@@ -194,21 +199,14 @@ public class JogoPanel extends JPanel{
 		return ajudaMorseButton;
 	}
 
-	public Sprite getAjudaFios() {
-		return ajudaFios;
+	public Sprite getAjuda() {
+		return ajuda;
 	}
 
-	public Sprite getAjudaQuiz() {
-		return ajudaQuiz;
+	public ImageIcon getAjudaIcon() {
+		return ajudaIcon;
 	}
 
-	public Sprite getAjudaTesteMesa() {
-		return ajudaTesteMesa;
-	}
-
-	public Sprite getAjudaMorse() {
-		return ajudaMorse;
-	}
 	
 	
   
