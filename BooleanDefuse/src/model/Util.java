@@ -20,6 +20,7 @@ import view.Mensagem;
  * @author Elvis Nogueira
  */
 public class Util {
+	public static int partidasJogadas = 0;
     public static final int ATIVADA=1, DESATIVADA=0, EXPLODIR=2;
     public static boolean explodir = false;
     public static final int ALTURA=768, LARGURA=1366;

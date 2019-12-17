@@ -43,6 +43,9 @@ public class Gameloop {
 			g.drawImage(bomba.getModuloFios().getLedStatus().sprites[bomba.getModuloFios().getLedStatus().aparencia], 
 					bomba.getModuloFios().getLedStatus().posX, bomba.getModuloFios().getLedStatus().posY, null);
 			
+			g.drawImage(bomba.getModuloFios().getAjuda().sprites[bomba.getModuloFios().getAjuda().aparencia], 
+					bomba.getModuloFios().getAjuda().posX, bomba.getModuloFios().getAjuda().posY, null);
+			
 			
 			//Modulo quiz
 			
@@ -56,9 +59,14 @@ public class Gameloop {
 			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[0].getPalavra(), 310, 505);
 			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[1].getPalavra(), 310, 525);
 			g.drawString(bomba.getModuloMorse().getVocabuloMorse()[2].getPalavra(), 310, 545);
-			
 			g.drawImage(bomba.getModuloMorse().getLedStatus().sprites[bomba.getModuloMorse().getLedStatus().aparencia], 
 					bomba.getModuloMorse().getLedStatus().posX, bomba.getModuloMorse().getLedStatus().posY, null);
+			
+			g.drawImage(bomba.getModuloQuiz().getLedStatus().sprites[bomba.getModuloQuiz().getLedStatus().aparencia], 
+					bomba.getModuloQuiz().getLedStatus().posX, bomba.getModuloQuiz().getLedStatus().posY, null);
+			
+			g.drawImage(bomba.getModuloQuiz().getAjuda().sprites[bomba.getModuloQuiz().getAjuda().aparencia], 
+					bomba.getModuloQuiz().getAjuda().posX, bomba.getModuloQuiz().getAjuda().posY, null);
 			
 			//Modulo teste mesa
 			
@@ -66,7 +74,8 @@ public class Gameloop {
 					bomba.getModuloTesteMesa().getSimbolo().posX, bomba.getModuloTesteMesa().getSimbolo().posY, null);
 			g.drawImage(bomba.getModuloTesteMesa().getLedStatus().sprites[bomba.getModuloTesteMesa().getLedStatus().aparencia], 
 					bomba.getModuloTesteMesa().getLedStatus().posX, bomba.getModuloTesteMesa().getLedStatus().posY, null);
-			
+			g.drawImage(bomba.getModuloTesteMesa().getAjuda().sprites[bomba.getModuloTesteMesa().getAjuda().aparencia], 
+					bomba.getModuloTesteMesa().getAjuda().posX, bomba.getModuloTesteMesa().getAjuda().posY, null);
 			
 			g.setFont(Util.getFont("Anton-Regular", 30));
 			g.setColor(Color.white);
@@ -81,15 +90,20 @@ public class Gameloop {
 			
 			//Modulo Morse
 			
-			
+			g.drawImage(bomba.getModuloMorse().getAjuda().sprites[bomba.getModuloMorse().getAjuda().aparencia], 
+					bomba.getModuloMorse().getAjuda().posX, bomba.getModuloMorse().getAjuda().posY, null);
 			
 			tela.getJogoPanel().getVerdadeiroButton().repaint();
 			tela.getJogoPanel().getFalsoButton().repaint();			
 			tela.getJogoPanel().getPerguntaModuloQuiz().repaint();
 			
+			
 			tela.getJogoPanel().getSaidaCod().repaint();
 			
 			tela.getJogoPanel().getSairButton().repaint();
+			
+//			g.drawImage(bomba.getModuloFios().getDica().sprites[bomba.getModuloFios().getDica().aparencia], 
+//					bomba.getModuloFios().getDica().posX, bomba.getModuloFios().getDica().posY, null);
 			
 			//VENCEU
 			

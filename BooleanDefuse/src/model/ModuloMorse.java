@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,7 +19,7 @@ import view.Mensagem;
  */
 public class ModuloMorse {
     
-    private Sprite ledStatus;
+    private Sprite ledStatus, ajuda;
     private VocabuloMorse[] vocabuloMorse;
     private String resposta;
     private boolean status;
@@ -27,8 +28,9 @@ public class ModuloMorse {
     	vocabuloMorse = new VocabuloMorse[3];
     	try {
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 455);
+			ajuda = new Sprite("Imagens/icone ajuda sprite.png", 0, 34, 30, 1, 3, 269, 455);
 		} catch (IOException e) {
-			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computado!", Util.ERRRO);
+			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computador!", Util.ERRRO);
 		}
     	
     	initModMorse();
@@ -144,6 +146,28 @@ public class ModuloMorse {
     	
     	return false;
     }
+    
+    public boolean colisaoAjuda(int posXMouse,int posYMouse) {
+    	if(colide(ajuda, posXMouse, posYMouse+30)) {
+			ajuda.aparencia=1;
+			Sons.tocar("Sons/select.wav");
+			return true;
+		}else {
+			ajuda.aparencia=0;
+		}
+    	return false;
+    }
+    
+    private boolean colide(Sprite sprite1, int mouseX, int mouseY) {
+    	  Rectangle r1 = new Rectangle(sprite1.posX, sprite1.posY, sprite1.width, sprite1.height);
+    	  Rectangle r2 = new Rectangle(mouseX, mouseY, 1, 1);
+    	  
+    	  if (r1.intersects(r2)) {
+    	    return true;
+    	  }
+    	  
+    	  return false;
+    }
 
 	public Sprite getLedStatus() {
 		return ledStatus;
@@ -160,7 +184,12 @@ public class ModuloMorse {
 	public boolean isStatus() {
 		return status;
 	}
+
+	public Sprite getAjuda() {
+		return ajuda;
+	}
     
+	
     
     
 }

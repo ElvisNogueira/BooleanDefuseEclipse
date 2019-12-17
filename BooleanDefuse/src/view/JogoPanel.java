@@ -147,9 +147,7 @@ public class JogoPanel extends JPanel{
 	public ImageIcon getVenceu() {
 		return venceu;
 	}
-  
-	
-	
+
     
     
 }

@@ -21,7 +21,7 @@ import view.Mensagem;
  */
 public class ModuloFios {
     private boolean status;
-    private Sprite ledStatus;
+    private Sprite ledStatus, ajuda,dica;
     private Fios[] fios;
     private Sprite[] sprites;
     
@@ -30,10 +30,14 @@ public class ModuloFios {
     	sprites = new Sprite[3];
     	
     	try {
+    		dica = new Sprite("Imagens/sprite dicas.png", 0, 482, 280, 4, 2, 0, 0);
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 170);
+			ajuda = new Sprite("Imagens/icone ajuda sprite.png", 0, 34, 30, 1, 3, 269, 165);
 		} catch (IOException e) {
 			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computado!", Util.ERRRO);
 		}
+    	
+    	
     	
     	initModFios();
     	
@@ -219,6 +223,17 @@ public class ModuloFios {
     	}
     }
     
+    public boolean colisaoAjuda(int posXMouse,int posYMouse) {
+    	if(colide(ajuda, posXMouse, posYMouse+30)) {
+			ajuda.aparencia=1;
+			Sons.tocar("Sons/select.wav");
+			return true;
+		}else {
+			ajuda.aparencia=0;
+		}
+    	return false;
+    }
+    
     private boolean colide(Sprite sprite1, int mouseX, int mouseY) {
     	  Rectangle r1 = new Rectangle(sprite1.posX, sprite1.posY, sprite1.width, sprite1.height);
     	  Rectangle r2 = new Rectangle(mouseX, mouseY, 1, 1);
@@ -275,6 +290,14 @@ public class ModuloFios {
 
 	public Sprite[] getSprites() {
 		return sprites;
+	}
+
+	public Sprite getAjuda() {
+		return ajuda;
+	}
+
+	public Sprite getDica() {
+		return dica;
 	}
     
     

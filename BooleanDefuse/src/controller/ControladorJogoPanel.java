@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import model.Bomba;
@@ -94,6 +96,7 @@ public class ControladorJogoPanel{
 			}			
 			
 			if(e.getSource()==tela.getGameOverPanel().getJogarNovamente()) {
+				conferirPartidasJogadas();
 				tela.getGameOverPanel().setVisible(false);
 				Util.explodir = false;
 				Util.flagDesarmada = false;
@@ -109,6 +112,8 @@ public class ControladorJogoPanel{
 				
 				Sons.tocar("Sons/cap_priece.wav");		
 			}else if(e.getSource()==tela.getMenuPanel().getPlayButton()) {
+				conferirPartidasJogadas();
+				
 				tela.getMenuPanel().parar();
 				tela.getMenuPanel().setVisible(false);
 				tela.getMenuPanel().getTema().pararDeTocarInstance();
@@ -164,14 +169,27 @@ public class ControladorJogoPanel{
 		}
 
 		@Override
-		public void mouseClicked(MouseEvent arg0) {
+		public void mouseClicked(MouseEvent e) {
 			
-			jogoPanel.getBomba().getModuloFios().cortarFios(arg0.getX(), arg0.getY());
+
+			if(Util.partidasJogadas<4) {
+				if(jogoPanel.getBomba().getModuloFios().colisaoAjuda(e.getX(), e.getY())) {
+					Mensagem.dicas(0);
+				}else if(jogoPanel.getBomba().getModuloQuiz().colisaoAjuda(e.getX(), e.getY())) {
+					Mensagem.dicas(1);
+				}else if(jogoPanel.getBomba().getModuloTesteMesa().colisaoAjuda(e.getX(), e.getY())) {
+					Mensagem.dicas(2);
+				}else if(jogoPanel.getBomba().getModuloMorse().colisaoAjuda(e.getX(), e.getY())) {
+					Mensagem.dicas(3);
+				}
+			}
+			jogoPanel.getBomba().getModuloFios().cortarFios(e.getX(), e.getY());
 			jogoPanel.getBomba().desativarBomba();
 			if(jogoPanel.getBomba().explodir()) {
 				jogoPanel.setVisible(false);
 				tela.getGameOverPanel().setVisible(true);
 			}
+			
 			
 		}
 
@@ -210,6 +228,13 @@ public class ControladorJogoPanel{
 		@Override
 		public void mouseMoved(MouseEvent e) {
 			jogoPanel.getBomba().getModuloFios().colisaoFios(e.getX(), e.getY());
+			
+			if(Util.partidasJogadas<4) {
+				jogoPanel.getBomba().getModuloFios().colisaoAjuda(e.getX(), e.getY());
+				jogoPanel.getBomba().getModuloMorse().colisaoAjuda(e.getX(), e.getY());
+				jogoPanel.getBomba().getModuloQuiz().colisaoAjuda(e.getX(), e.getY());
+				jogoPanel.getBomba().getModuloTesteMesa().colisaoAjuda(e.getX(), e.getY());
+			}
 		}
 
 		@Override
@@ -240,6 +265,16 @@ public class ControladorJogoPanel{
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
 			
+		}
+		
+		public void conferirPartidasJogadas() {
+			Util.partidasJogadas++;
+			if(Util.partidasJogadas>3) {
+				jogoPanel.getBomba().getModuloFios().getAjuda().aparencia=2;
+				jogoPanel.getBomba().getModuloMorse().getAjuda().aparencia=2;
+				jogoPanel.getBomba().getModuloQuiz().getAjuda().aparencia=2;
+				jogoPanel.getBomba().getModuloTesteMesa().getAjuda().aparencia=2;
+			}
 		}
 		
 	}

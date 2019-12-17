@@ -1,10 +1,14 @@
 package app;
 
+import java.awt.Color;
 import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import controller.ControladorJogoPanel;
 import dao.FiosDao;
@@ -25,6 +29,9 @@ import view.Tela;
 
 public class App {
 	public static void main(String[] args) {
+		
+//		UIManager.getDefaults().put("OptionPane.background",new Color(0,0,0));
+//		UIManager.put ("Panel.background", new Color(0,0,0));
 		Tela tela;
 		JogoPanel jogoPainel = new JogoPanel();
 		GameOverPanel gameOverPanel = new GameOverPanel();
