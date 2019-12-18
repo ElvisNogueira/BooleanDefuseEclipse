@@ -46,6 +46,8 @@ public class Gameloop {
 			g.drawImage(bomba.getModuloFios().getAjuda().sprites[bomba.getModuloFios().getAjuda().aparencia], 
 					bomba.getModuloFios().getAjuda().posX, bomba.getModuloFios().getAjuda().posY, null);
 			
+			g.drawImage(bomba.getModuloFios().getAlicate().sprites[bomba.getModuloFios().getAlicate().aparencia],
+					bomba.getModuloFios().getAlicate().posX, bomba.getModuloFios().getAlicate().posY, null);
 			
 			//Modulo quiz
 			

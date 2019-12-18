@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -9,6 +10,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -228,6 +230,17 @@ public class ControladorJogoPanel{
 		@Override
 		public void mouseMoved(MouseEvent e) {
 			jogoPanel.getBomba().getModuloFios().colisaoFios(e.getX(), e.getY());
+			if(jogoPanel.getBomba().getModuloFios().emCimaDoFio(e.getX(), e.getY())) {
+				jogoPanel.getBomba().getModuloFios().getAlicate().aparencia = 0;
+				jogoPanel.getBomba().getModuloFios().getAlicate().posX = e.getX();
+				jogoPanel.getBomba().getModuloFios().getAlicate().posY = e.getY();
+				jogoPanel.setCursor(jogoPanel.getToolkit().createCustomCursor(
+			            new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
+			            "null"));	
+			}else {
+				jogoPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+				jogoPanel.getBomba().getModuloFios().getAlicate().aparencia = 1;
+			}
 			
 			if(Util.partidasJogadas<4) {
 				jogoPanel.getBomba().getModuloFios().colisaoAjuda(e.getX(), e.getY());

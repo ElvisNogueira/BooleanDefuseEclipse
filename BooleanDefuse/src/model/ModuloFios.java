@@ -24,6 +24,7 @@ public class ModuloFios {
     private Sprite ledStatus, ajuda,dica;
     private Fios[] fios;
     private Sprite[] sprites;
+    private Sprite alicate;
     
     public ModuloFios() {
     	fios = new Fios[3];
@@ -33,6 +34,7 @@ public class ModuloFios {
     		dica = new Sprite("Imagens/sprite dicas.png", 0, 482, 280, 4, 2, 0, 0);
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 170);
 			ajuda = new Sprite("Imagens/icone ajuda sprite.png", 0, 34, 30, 1, 3, 269, 165);
+			alicate = new Sprite("Imagens/Alicate.png", 1, 30, 30, 1, 2, 150, 150);
 		} catch (IOException e) {
 			Mensagem.mostrar("Erro ao carregar Sprite! Verifique se o arquivo  do caminho \"Imagens/LED STATUS.png\" está no seu computado!", Util.ERRRO);
 		}
@@ -200,6 +202,16 @@ public class ModuloFios {
     	
     }
     
+    public boolean emCimaDoFio(int posXMouse,int posYMouse) {
+    	for (int i = 0; i < fios.length; i++) {
+    		if(colide(sprites[i], posXMouse, posYMouse)) {
+    				return true;
+    		}
+		}
+		return false;   	
+    	
+    }
+    
     public void cortarFios(int posXMouse,int posYMouse) {
     	for (int i = 0; i < fios.length; i++) {
     		if(colide(sprites[i], posXMouse, posYMouse)) {
@@ -299,7 +311,12 @@ public class ModuloFios {
 	public Sprite getDica() {
 		return dica;
 	}
+
+	public Sprite getAlicate() {
+		return alicate;
+	}
     
+	
     
     
     
