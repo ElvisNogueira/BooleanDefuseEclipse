@@ -22,10 +22,12 @@ public class GameOverPanel extends JPanel{
         jogarNovamente = new JButton();
         jogarNovamente.setIcon(new ImageIcon("Imagens/reiniciar.png"));
         jogarNovamente.setBackground(Color.red);
+        jogarNovamente.setToolTipText("Jogar Novamente");
         
         sair = new JButton();
         sair.setIcon(new ImageIcon("Imagens/sair.png"));
         sair.setBackground(Color.red);
+        sair.setToolTipText("Voltar para o menu");
         
         add(jogarNovamente).setBounds(50, 650, 60, 60);
         add(sair).setBounds(1246, 650, 60, 60);

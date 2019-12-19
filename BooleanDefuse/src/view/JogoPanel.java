@@ -61,6 +61,7 @@ public class JogoPanel extends JPanel{
         sairButton = new JButton();
         sairButton.setIcon(new ImageIcon("Imagens/sair.png"));
         sairButton.setBackground(Color.red);
+        sairButton.setToolTipText("Voltar para o menu");
         
         elementoModMorse1 = new JTextField(1);
         operadorModMorse = new JTextField(2);

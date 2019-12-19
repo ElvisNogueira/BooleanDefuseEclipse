@@ -161,9 +161,11 @@ public class ControladorJogoPanel{
 					break;
 				}
 			}else if(e.getSource()==tela.getDificuldadePanel().getFacilButton()) {
+				Sons.tocar("Sons/botao.wav");
 				Util.DIFICULDADE_FACIL = true;
 				iniciarPartida();
 			}else if(e.getSource()==tela.getDificuldadePanel().getNormalButton()) {
+				Sons.tocar("Sons/botao.wav");
 				Util.DIFICULDADE_FACIL = false;
 				iniciarPartida();
 			}else if(e.getSource()==tela.getDificuldadePanel().getSairButton()) {
@@ -180,6 +182,7 @@ public class ControladorJogoPanel{
 			if(Util.DIFICULDADE_FACIL) {
 				if(jogoPanel.getBomba().getModuloFios().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(0);
+					Sons.tocar("Sons/botao.wav");
 					if(e.getClickCount()==3)
 						Util.flagEasterEgg = true;
 					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 0)) {
@@ -192,6 +195,7 @@ public class ControladorJogoPanel{
 					}
 				}else if(jogoPanel.getBomba().getModuloQuiz().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(1);
+					Sons.tocar("Sons/botao.wav");
 					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 1)) {
 						jogoPanel.getBomba().getModuloFios().getDica().aparencia = 1;
 						jogoPanel.getBomba().getModuloFios().getDica().posX = 392;
@@ -202,16 +206,19 @@ public class ControladorJogoPanel{
 					}
 				}else if(jogoPanel.getBomba().getModuloTesteMesa().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(2);
+					Sons.tocar("Sons/botao.wav");
 					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 2)) {
 						jogoPanel.getBomba().getModuloFios().getDica().aparencia = 2;
 						jogoPanel.getBomba().getModuloFios().getDica().posX = 878;
 						jogoPanel.getBomba().getModuloFios().getDica().posY = 190;
 						Util.flagMostrarDica = true;
+						
 					}else {
 						Util.flagMostrarDica = false;
 					}
 				}else if(jogoPanel.getBomba().getModuloMorse().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(3);
+					Sons.tocar("Sons/botao.wav");
 					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 3)) {
 						jogoPanel.getBomba().getModuloFios().getDica().aparencia = 3;
 						jogoPanel.getBomba().getModuloFios().getDica().posX = 262;

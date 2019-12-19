@@ -25,11 +25,13 @@ public class MenuPanel extends JPanel{
 		playButton = new JButton();
 		playButton.setIcon(new ImageIcon("Imagens/reproduzir.png"));
 		playButton.setBackground(Color.RED);
+		playButton.setToolTipText("Jogar");
 		
 		
 		sairButton = new JButton();
 		sairButton.setIcon(new ImageIcon("Imagens/desligar.png"));
 		sairButton.setBackground(Color.RED);
+		sairButton.setToolTipText("Fechar");
 		
 		tema = new Sons("Sons/tema.wav");
 		tema.tocarInstance();

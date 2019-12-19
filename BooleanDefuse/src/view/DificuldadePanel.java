@@ -36,6 +36,7 @@ public class DificuldadePanel extends JPanel{
 		sairButton = new JButton();
 		sairButton.setIcon(new ImageIcon("Imagens/sair.png"));
 		sairButton.setBackground(Color.RED);
+		sairButton.setToolTipText("Voltar para o menu");
 		
 		try {
 			textoDificuldade = new Sprite("Imagens/sprite dificuldade.png", 1, 394, 109, 2, 1, 930, 420);
