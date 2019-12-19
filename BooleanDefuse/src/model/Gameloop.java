@@ -76,8 +76,10 @@ public class Gameloop {
 					bomba.getModuloTesteMesa().getSimbolo().posX, bomba.getModuloTesteMesa().getSimbolo().posY, null);
 			g.drawImage(bomba.getModuloTesteMesa().getLedStatus().sprites[bomba.getModuloTesteMesa().getLedStatus().aparencia], 
 					bomba.getModuloTesteMesa().getLedStatus().posX, bomba.getModuloTesteMesa().getLedStatus().posY, null);
+			
 			g.drawImage(bomba.getModuloTesteMesa().getAjuda().sprites[bomba.getModuloTesteMesa().getAjuda().aparencia], 
 					bomba.getModuloTesteMesa().getAjuda().posX, bomba.getModuloTesteMesa().getAjuda().posY, null);
+			
 			
 			g.setFont(Util.getFont("Anton-Regular", 30));
 			g.setColor(Color.white);
@@ -132,6 +134,18 @@ public class Gameloop {
 			g.drawImage(tela.getMenuPanel().getMenuBG().getImage(), -35, 0, null);
 			tela.getMenuPanel().getSairButton().repaint();
 			tela.getMenuPanel().getPlayButton().repaint();
+		}else if(tela.getDificuldadePanel().isVisible()) {
+			g.drawImage(tela.getDificuldadePanel().getMenuBG().getImage(), -35, 0, null);
+			
+			if(Util.textoDificuldade) {
+				g.drawImage(tela.getDificuldadePanel().getTextoDificuldade().sprites[tela.getDificuldadePanel().getTextoDificuldade().aparencia], 
+						tela.getDificuldadePanel().getTextoDificuldade().posX, tela.getDificuldadePanel().getTextoDificuldade().posY, null);
+			}
+			
+			
+			tela.getDificuldadePanel().getFacilButton().repaint();
+			tela.getDificuldadePanel().getNormalButton().repaint();
+			tela.getDificuldadePanel().getSairButton().repaint();
 		}
 		
 		if(Util.explodir) {

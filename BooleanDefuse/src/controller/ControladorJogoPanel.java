@@ -50,7 +50,13 @@ public class ControladorJogoPanel{
 		jogoPanel.getOperadorModMorse().addKeyListener(c);
 		jogoPanel.getResultadoModMorse().addKeyListener(c);
 		jogoPanel.getSaidaCod().addKeyListener(c);
-
+		
+		tela.getDificuldadePanel().getFacilButton().addActionListener(c);
+		tela.getDificuldadePanel().getNormalButton().addActionListener(c);
+		tela.getDificuldadePanel().getSairButton().addActionListener(c);
+		tela.getDificuldadePanel().getNormalButton().addMouseListener(c);
+		tela.getDificuldadePanel().getFacilButton().addMouseListener(c);
+		
 		tela.getGameOverPanel().getSair().addActionListener(c);
 		tela.getGameOverPanel().getJogarNovamente().addActionListener(c);
 
@@ -115,23 +121,8 @@ public class ControladorJogoPanel{
 
 				Sons.tocar("Sons/cap_priece.wav");		
 			}else if(e.getSource()==tela.getMenuPanel().getPlayButton()) {
-				conferirPartidasJogadas();
-
-				tela.getMenuPanel().parar();
 				tela.getMenuPanel().setVisible(false);
-				tela.getMenuPanel().getTema().pararDeTocarInstance();
-
-				jogoPanel.getElementoModMorse1().setText("");
-				jogoPanel.getElementoModMorse2().setText("");
-				jogoPanel.getOperadorModMorse().setText("");
-				jogoPanel.getResultadoModMorse().setText("");
-				jogoPanel.getSaidaCod().setText("");
-
-				tela.getJogoPanel().setVisible(true);
-				
-				
-				tela.getJogoPanel().getBomba().iniciarBomba();
-				Sons.tocar("Sons/cap_priece.wav");
+				tela.getDificuldadePanel().setVisible(true);
 			}else if(e.getSource()==tela.getGameOverPanel().getSair()) {
 				resposta = Mensagem.mostrarPergunta("Deseja realmente voltar para o menu?");
 				switch (resposta) {
@@ -169,6 +160,15 @@ public class ControladorJogoPanel{
 				default:
 					break;
 				}
+			}else if(e.getSource()==tela.getDificuldadePanel().getFacilButton()) {
+				Util.DIFICULDADE_FACIL = true;
+				iniciarPartida();
+			}else if(e.getSource()==tela.getDificuldadePanel().getNormalButton()) {
+				Util.DIFICULDADE_FACIL = false;
+				iniciarPartida();
+			}else if(e.getSource()==tela.getDificuldadePanel().getSairButton()) {
+				tela.getDificuldadePanel().setVisible(false);
+				tela.getMenuPanel().setVisible(true);
 			}
 
 		}
@@ -177,7 +177,7 @@ public class ControladorJogoPanel{
 		public void mouseClicked(MouseEvent e) {
 			Util.flagEasterEgg = false;
 
-			if(Util.partidasJogadas<4) {
+			if(Util.DIFICULDADE_FACIL) {
 				if(jogoPanel.getBomba().getModuloFios().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(0);
 					if(e.getClickCount()==3)
@@ -235,7 +235,14 @@ public class ControladorJogoPanel{
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
 			if((arg0.getSource()==jogoPanel.getVerdadeiroButton()) || arg0.getSource()==jogoPanel.getFalsoButton())
-				jogoPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));				
+				jogoPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));	
+			else if(arg0.getSource()==tela.getDificuldadePanel().getFacilButton()) {
+				Util.textoDificuldade = true;
+				tela.getDificuldadePanel().getTextoDificuldade().aparencia = 0;
+			}else if(arg0.getSource()==tela.getDificuldadePanel().getNormalButton()) {
+				Util.textoDificuldade = true;
+				tela.getDificuldadePanel().getTextoDificuldade().aparencia = 1;
+			}
 
 		}
 
@@ -243,7 +250,11 @@ public class ControladorJogoPanel{
 		public void mouseExited(MouseEvent arg0) {
 			if((arg0.getSource()==jogoPanel.getVerdadeiroButton()) || arg0.getSource()==jogoPanel.getFalsoButton())
 				jogoPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));				
-
+			else if(arg0.getSource()==tela.getDificuldadePanel().getFacilButton()) {
+				Util.textoDificuldade = false;
+			}else if(arg0.getSource()==tela.getDificuldadePanel().getNormalButton()) {
+				Util.textoDificuldade = false;
+			}
 		}
 
 		@Override
@@ -279,7 +290,7 @@ public class ControladorJogoPanel{
 				jogoPanel.getBomba().getModuloFios().getAlicate().aparencia = 1;
 			}
 
-			if(Util.partidasJogadas<4) {
+			if(Util.DIFICULDADE_FACIL) {
 				jogoPanel.getBomba().getModuloFios().colisaoAjuda(e.getX(), e.getY());
 				jogoPanel.getBomba().getModuloMorse().colisaoAjuda(e.getX(), e.getY());
 				jogoPanel.getBomba().getModuloQuiz().colisaoAjuda(e.getX(), e.getY());
@@ -318,13 +329,33 @@ public class ControladorJogoPanel{
 		}
 
 		public void conferirPartidasJogadas() {
-			Util.partidasJogadas++;
-			if(Util.partidasJogadas>3) {
+			if(!Util.DIFICULDADE_FACIL) {
 				jogoPanel.getBomba().getModuloFios().getAjuda().aparencia=2;
 				jogoPanel.getBomba().getModuloMorse().getAjuda().aparencia=2;
 				jogoPanel.getBomba().getModuloQuiz().getAjuda().aparencia=2;
 				jogoPanel.getBomba().getModuloTesteMesa().getAjuda().aparencia=2;
 			}
+		}
+		
+		public void iniciarPartida() {
+			conferirPartidasJogadas();
+
+			tela.getMenuPanel().parar();
+			tela.getDificuldadePanel().setVisible(false);
+			tela.getMenuPanel().getTema().pararDeTocarInstance();
+
+			jogoPanel.getElementoModMorse1().setText("");
+			jogoPanel.getElementoModMorse2().setText("");
+			jogoPanel.getOperadorModMorse().setText("");
+			jogoPanel.getResultadoModMorse().setText("");
+			jogoPanel.getSaidaCod().setText("");
+			Util.flagMostrarDica = false;
+
+			tela.getJogoPanel().setVisible(true);
+			
+			
+			tela.getJogoPanel().getBomba().iniciarBomba();
+			Sons.tocar("Sons/cap_priece.wav");
 		}
 
 	}

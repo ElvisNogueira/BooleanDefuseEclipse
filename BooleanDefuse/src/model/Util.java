@@ -33,6 +33,8 @@ public class Util {
     public static boolean flagDesarmada = false;
     public static boolean flagMostrarDica = false;
     public static boolean flagEasterEgg = false;
+    public static boolean DIFICULDADE_FACIL = true;
+    public static boolean textoDificuldade = false;
     
     public static Font getFont( String nomeFonte, int tamanho ){  
         Font font = null;  

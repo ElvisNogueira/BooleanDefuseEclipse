@@ -19,11 +19,12 @@ import model.Util;
 public class Tela extends JFrame{
     private JogoPanel jogoPanel;
     private GameOverPanel gameOverPanel;
+    private DificuldadePanel dificuldadePanel;
     private MenuPanel menuPanel;
     private BufferedImage buffer;;
     BufferStrategy buffer1;
     
-    public Tela(JogoPanel jogoPanel, GameOverPanel gameOverPanel, MenuPanel menuPanel) {
+    public Tela(JogoPanel jogoPanel, GameOverPanel gameOverPanel, MenuPanel menuPanel, DificuldadePanel dificuldadePanel) {
     	super("Boolean Defuse");
     	setIconImage(new ImageIcon("Imagens/icone.png").getImage());
         setSize(Util.LARGURA, Util.ALTURA);
@@ -38,10 +39,13 @@ public class Tela extends JFrame{
         this.jogoPanel = jogoPanel;
         this.gameOverPanel = gameOverPanel;
         this.menuPanel = menuPanel;
+        this.dificuldadePanel = dificuldadePanel;
         
         add(this.jogoPanel);
         add(menuPanel).setBounds(0, 0, Util.LARGURA, Util.ALTURA);
         add(this.gameOverPanel).setBounds(0, 0, Util.LARGURA, Util.ALTURA);
+        add(this.gameOverPanel).setBounds(0, 0, Util.LARGURA, Util.ALTURA);
+        add(this.dificuldadePanel).setBounds(0, 0, Util.LARGURA, Util.ALTURA);
         this.jogoPanel.setBounds(0, 0, Util.LARGURA, Util.ALTURA);
         
         setVisible(true);
@@ -70,6 +74,10 @@ public class Tela extends JFrame{
 
 	public void setBuffer1(BufferStrategy buffer1) {
 		this.buffer1 = buffer1;
+	}
+
+	public DificuldadePanel getDificuldadePanel() {
+		return dificuldadePanel;
 	}
     
 	
