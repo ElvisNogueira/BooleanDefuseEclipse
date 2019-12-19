@@ -95,6 +95,13 @@ public class Gameloop {
 			g.drawImage(bomba.getModuloMorse().getAjuda().sprites[bomba.getModuloMorse().getAjuda().aparencia], 
 					bomba.getModuloMorse().getAjuda().posX, bomba.getModuloMorse().getAjuda().posY, null);
 			
+			if(Util.flagMostrarDica) {
+				g.drawImage(bomba.getModuloFios().getDica().sprites[bomba.getModuloFios().getDica().aparencia], 
+						bomba.getModuloFios().getDica().posX, bomba.getModuloFios().getDica().posY, null);
+			}
+			
+			
+			
 			tela.getJogoPanel().getVerdadeiroButton().repaint();
 			tela.getJogoPanel().getFalsoButton().repaint();			
 			tela.getJogoPanel().getPerguntaModuloQuiz().repaint();
@@ -104,19 +111,17 @@ public class Gameloop {
 			
 			tela.getJogoPanel().getSairButton().repaint();
 			
-//			g.drawImage(bomba.getModuloFios().getDica().sprites[bomba.getModuloFios().getDica().aparencia], 
-//					bomba.getModuloFios().getDica().posX, bomba.getModuloFios().getDica().posY, null);
 			
+			if(Util.flagEasterEgg) {
+				g.setFont(Util.getFont("Anton-Regular", 140));
+				g.setColor(Color.red);
+				g.drawString("LANA IS", 450, 300);
+				g.setFont(Util.getFont("Anton-Regular", 105));
+				g.setColor(Color.white);
+				g.drawString("AWESOME", 450, 420);
+			}
 			//VENCEU
 			
-//			if(Util.flagDesarmada) {
-//				g.drawImage(tela.getJogoPanel().getVenceu().getImage(), 0, 500, null);
-//			}else {
-//				tela.getJogoPanel().getElementoModMorse1().repaint();
-//				tela.getJogoPanel().getOperadorModMorse().repaint();
-//				tela.getJogoPanel().getElementoModMorse2().repaint();
-//				tela.getJogoPanel().getResultadoModMorse().repaint();
-//			}
 				
 			tela.getJogoPanel().getElementoModMorse1().repaint();
 			tela.getJogoPanel().getOperadorModMorse().repaint();

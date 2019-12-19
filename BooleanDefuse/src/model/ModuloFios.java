@@ -31,7 +31,7 @@ public class ModuloFios {
     	sprites = new Sprite[3];
     	
     	try {
-    		dica = new Sprite("Imagens/sprite dicas.png", 0, 482, 280, 4, 2, 0, 0);
+    		dica = new Sprite("Imagens/sprite dicas2.png", 0, 241, 182, 4, 1, 0, 0);
 			ledStatus = new Sprite("Imagens/LED STATUS.png", 0, 65, 22, 1, 2, 525, 170);
 			ajuda = new Sprite("Imagens/icone ajuda sprite.png", 0, 34, 30, 1, 3, 269, 165);
 			alicate = new Sprite("Imagens/Alicate.png", 1, 30, 30, 1, 2, 150, 150);
@@ -238,7 +238,6 @@ public class ModuloFios {
     public boolean colisaoAjuda(int posXMouse,int posYMouse) {
     	if(colide(ajuda, posXMouse, posYMouse+30)) {
 			ajuda.aparencia=1;
-			Sons.tocar("Sons/select.wav");
 			return true;
 		}else {
 			ajuda.aparencia=0;

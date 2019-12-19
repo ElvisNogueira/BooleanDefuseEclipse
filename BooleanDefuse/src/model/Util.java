@@ -31,6 +31,8 @@ public class Util {
     public static Color azulBic = new Color(25,78,146);
     public static final int FPS = 15;
     public static boolean flagDesarmada = false;
+    public static boolean flagMostrarDica = false;
+    public static boolean flagEasterEgg = false;
     
     public static Font getFont( String nomeFonte, int tamanho ){  
         Font font = null;  

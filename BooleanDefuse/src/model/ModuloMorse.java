@@ -150,7 +150,6 @@ public class ModuloMorse {
     public boolean colisaoAjuda(int posXMouse,int posYMouse) {
     	if(colide(ajuda, posXMouse, posYMouse+30)) {
 			ajuda.aparencia=1;
-			Sons.tocar("Sons/select.wav");
 			return true;
 		}else {
 			ajuda.aparencia=0;
