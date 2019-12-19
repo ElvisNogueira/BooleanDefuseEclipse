@@ -182,7 +182,7 @@ public class ControladorJogoPanel{
 					//					Mensagem.dicas(0);
 					if(e.getClickCount()==3)
 						Util.flagEasterEgg = true;
-					if(!Util.flagMostrarDica) {
+					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 0)) {
 						jogoPanel.getBomba().getModuloFios().getDica().aparencia = 0;
 						jogoPanel.getBomba().getModuloFios().getDica().posX = 262;
 						jogoPanel.getBomba().getModuloFios().getDica().posY = 190;
@@ -192,7 +192,7 @@ public class ControladorJogoPanel{
 					}
 				}else if(jogoPanel.getBomba().getModuloQuiz().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(1);
-					if(!Util.flagMostrarDica) {
+					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 1)) {
 						jogoPanel.getBomba().getModuloFios().getDica().aparencia = 1;
 						jogoPanel.getBomba().getModuloFios().getDica().posX = 392;
 						jogoPanel.getBomba().getModuloFios().getDica().posY = 161;
@@ -202,7 +202,7 @@ public class ControladorJogoPanel{
 					}
 				}else if(jogoPanel.getBomba().getModuloTesteMesa().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(2);
-					if(!Util.flagMostrarDica) {
+					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 2)) {
 						jogoPanel.getBomba().getModuloFios().getDica().aparencia = 2;
 						jogoPanel.getBomba().getModuloFios().getDica().posX = 878;
 						jogoPanel.getBomba().getModuloFios().getDica().posY = 190;
@@ -212,7 +212,7 @@ public class ControladorJogoPanel{
 					}
 				}else if(jogoPanel.getBomba().getModuloMorse().colisaoAjuda(e.getX(), e.getY())) {
 					//					Mensagem.dicas(3);
-					if(!Util.flagMostrarDica) {
+					if(!Util.flagMostrarDica || (Util.flagMostrarDica && jogoPanel.getBomba().getModuloFios().getDica().aparencia != 3)) {
 						jogoPanel.getBomba().getModuloFios().getDica().aparencia = 3;
 						jogoPanel.getBomba().getModuloFios().getDica().posX = 262;
 						jogoPanel.getBomba().getModuloFios().getDica().posY = 275;	
