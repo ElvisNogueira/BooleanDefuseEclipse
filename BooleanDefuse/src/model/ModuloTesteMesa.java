@@ -56,13 +56,13 @@ public class ModuloTesteMesa {
 						ledStatus.aparencia = 1;
 						Sons.tocar("Sons/acerto.wav");
 						return true;
-					}	
+					}
 				case 1:
 					if(codComp(entradas[0], entradas[1], entradas[2]) == Integer.parseInt(resposta)) {
 						ledStatus.aparencia = 1;
 						Sons.tocar("Sons/acerto.wav");
 						return true;
-					}		
+					}	
 				case 2:
 					if(codCalc(entradas[0], entradas[1], entradas[2]) == Integer.parseInt(resposta)) {
 						ledStatus.aparencia = 1;
@@ -74,7 +74,7 @@ public class ModuloTesteMesa {
 				}
 
 			} catch (NumberFormatException e) {
-				// TODO: handle exception
+				
 			}
 		} 	
 		return false;
@@ -85,7 +85,7 @@ public class ModuloTesteMesa {
 
 		simbolo.aparencia = random.nextInt(3);
 		for (int i = 0; i < entradas.length; i++) {
-			entradas[i]=random.nextInt(10);
+			entradas[i]=random.nextInt(8)+1;
 		}
 	}
 
